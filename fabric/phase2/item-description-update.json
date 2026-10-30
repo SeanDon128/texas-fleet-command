@@ -1,0 +1,29 @@
+{
+  "appliedAt": "2026-10-30T06:43:22.703Z",
+  "results": [
+    {
+      "type": "AppBackend",
+      "id": "00000000-0000-4000-8000-000000000005",
+      "status": 200,
+      "descriptionBefore": "",
+      "descriptionAfter": "Zava Security (fictional) Texas Fleet Command app backend: Rayfin-managed Fabric App over entirely synthetic data. Not a real company or production system.",
+      "displayNameUnchanged": true
+    },
+    {
+      "type": "SQLDatabase",
+      "id": "00000000-0000-4000-8000-000000000006",
+      "status": 200,
+      "descriptionBefore": "",
+      "descriptionAfter": "Zava Security (fictional) Texas fleet operational database. Entirely synthetic data; no real vehicles, people, customers or operations.",
+      "displayNameUnchanged": true
+    },
+    {
+      "type": "UserDataFunction",
+      "id": "00000000-0000-4000-8000-000000000010",
+      "status": 200,
+      "descriptionBefore": "",
+      "descriptionAfter": "Zava Security (fictional) Function that calls the published fleet Data Agent for the Texas Fleet Command app. Synthetic demo only.",
+      "displayNameUnchanged": true
+    }
+  ]
+}

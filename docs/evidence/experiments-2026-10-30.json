@@ -1,0 +1,276 @@
+{
+  "recordedAt": "2026-10-30T08:37:59Z",
+  "note": "Real, bounded experiments run on 2026-10-30 against the approved Trucks Rayfin workspace or isolated local directories as stated. No tokens or credentials are recorded. Scratch semantic/SQL connector and template outputs were deleted; the experimental semantic agent remains. Results are observations in one environment, not general claims.",
+  "documentationReview": {
+    "date": "2026-10-30",
+    "scope": "Documentation-only reconciliation; raw answers, measurements and experiment IDs unchanged. No new runtime experiment, deployment or application/configuration change.",
+    "experimentsReconciled": 6,
+    "feedbackEntriesReconciled": 37,
+    "clarifications": [
+      "Semantic connector HTTP 401 cause is unproven; scope and permission interpretations are not confirmed diagnoses.",
+      "Semantic-agent query/measure selection was not observed; tuned results are not a held-out benchmark.",
+      "Local template scaffolding and developer-identity SQL preflight are not deployed app integrations.",
+      "Ontology context attachment was blocked; zero ontology-backed answers, hypothesis not evaluated.",
+      "Capacity notice reflects the last recorded Active check, not a new or continuous availability claim."
+    ],
+    "validation": {
+      "brandingTestsPassed": 2,
+      "relativeLinksChecked": 198,
+      "markdownAnchorsChecked": 12,
+      "brokenLinksOrAnchors": 0,
+      "markdownFilesCheckedForAccountTenantAndWorkspaceValues": 59,
+      "privacyFindings": 0,
+      "staleExperimentAnchors": 0,
+      "evidenceCountsConsistent": true
+    }
+  },
+  "experiments": [
+    {
+      "id": "E-CATALOG",
+      "feature": "OneLake catalog search (read-only, via the Fabric catalog search API)",
+      "hypothesis": "Every item the Rayfin deployment and Phase 2 work created is discoverable in the tenant catalog with usable metadata.",
+      "test": "Searched the catalog for 'tx-fleet-command', 'Fleet_Operations' and 'Texas Fleet Operations'.",
+      "expected": "App, database, Function, Data Agent, semantic model and ontology are listed with type, description and workspace.",
+      "actual": {
+        "itemsFoundInWorkspace": 12,
+        "types": ["AppBackend", "SQLDatabase", "SQLEndpoint x2", "UserDataFunction", "Lakehouse", "DataAgent", "SemanticModel", "Ontology", "GraphModel", "Eventhouse", "KQLDatabase"],
+        "observations": [
+          "Entries carry only id, type, displayName, description and workspace hierarchy. No relationships or lineage between the app, database, Function, agent, semantic model or ontology are returned.",
+          "Four items created by one Rayfin deployment share the display name tx-fleet-command (AppBackend, SQLDatabase, SQLEndpoint, UserDataFunction); only type distinguishes them.",
+          "Descriptions for the app-created items were empty until set manually afterwards.",
+          "Search is fuzzy: a query also returned an unrelated item from another workspace the caller can access."
+        ]
+      },
+      "result": "WORKED for discovery; lineage and descriptions are the gaps",
+      "feedbackIds": ["FB-032"]
+    },
+    {
+      "id": "E-CONNECTOR",
+      "feature": "Rayfin data connector for a Power BI semantic model (CLI: search, add, invoke), run in an isolated scratch project",
+      "hypothesis": "The existing Texas Fleet Operations semantic model can be discovered, attached and queried through Rayfin's connector tooling in minutes, without deploying or modifying the live app.",
+      "test": "connector search -> connector add --type fabric-semanticmodel -> connector invoke executeQuery with a DAX query over measures that were already verified against SQL.",
+      "expected": "Search lists the model; add scaffolds a typed connector; invoke returns the verified fleet measures.",
+      "actual": {
+        "search": { "seconds": 4.6, "sourcesFound": 3, "types": ["fabric-semanticmodel", "fabric-sqlanalytics (Lakehouse)", "fabric-sqldatabase"], "addEligible": true },
+        "add": { "seconds": 4.5, "created": ["rayfin.yml connectors entry", "schema.ts placeholder", "agent skill files"], "note": "Printed a version-pinned npm install command; reported that no src/lib/connectors.ts existed so nothing was wired." },
+        "invoke": {
+          "status": "BLOCKED",
+          "http": 401,
+          "requestIds": ["00000000-0000-4000-8000-faa431cacf7d", "00000000-0000-4000-8000-f9194d467f5e", "00000000-0000-4000-8000-f13c0532976b"],
+          "diagnostic": "The token passed the CLI's audience check (Power BI API) but carried only the user_impersonation scope. The same token succeeds against the REST executeQueries API used by this project's validation script.",
+          "cliRecoveryHint": "Sign in again, and confirm you have at least Viewer access to the workspace/semantic model.",
+          "causeStatus": "Root cause is unproven; missing consented scope is suspected. Admin role and the successful REST path make basic Viewer access an unhelpful primary recovery hint, but do not establish every connector-specific authorization prerequisite."
+        }
+      },
+      "result": "PARTIAL: discovery and scaffolding worked; invocation returned HTTP 401. Missing consented scope is suspected but unproven; the same token worked through separate REST validation. Interactive Power BI consent through the CLI was not attempted because login is blocked by FB-010 and plaintext token storage was deliberately not enabled.",
+      "timeBox": "About 15 minutes, stopped as planned",
+      "feedbackIds": ["FB-033"]
+    },
+    {
+      "id": "E-AGENT-SEMANTIC",
+      "feature": "Data Agent with a semantic_model data source (new additive agent tx-fleet-semantic-agent; existing agent never written to)",
+      "hypothesis": "A new agent grounded on the semantic model's governed measures, with short generic instructions and no few-shot examples, answers the eight golden business questions at least as well as the existing Lakehouse agent and returns 'needs attention' as one uncapped total (54).",
+      "preRegistered": true,
+      "test": "Measured fresh DAX ground truth, asked both agents the same eight questions (Run A), repeated Q1, Q2 and Q7 unchanged on the new agent (Run A2), then extended only the new agent's instructions with explicit business definitions and asked all eight again (Run B).",
+      "groundTruth": {
+        "Q1": "54 of 120 (45%)",
+        "Q2": "HOU 17 of 28 (60.7%); DFW 11/26; SAT 6/14; AUS 5/14; CRP 5/10; ELP 4/8; LBB 4/10; AMA 2/10",
+        "Q3": "SYN-026, SYN-027, SYN-028, SYN-029, SYN-090",
+        "Q4": "120 vehicles, 102 active, 24 health, 16 delayed, 27 active alerts on 21 vehicles, 10 stale, 18 out of service",
+        "Q5": "SYN-025, SYN-026, SYN-051, SYN-052, SYN-053, SYN-054, SYN-082, SYN-090, SYN-100, SYN-110",
+        "Q6": "SYN-027: 38 minutes delayed, 2 active alerts (1 critical), telemetry fresh",
+        "Q7": "health 24, alert vehicles 21, out of service 18, delayed 16, stale 10, distinct total 54",
+        "Q8": "60 events in the last scenario hour (15 of each of four types)"
+      },
+      "setup": {
+        "definition": { "tables": 7, "visibleColumns": 42, "measures": 17 },
+        "createdFirstAttempt": true,
+        "folderNormalization": "semantic_model-TexasFleetOperations became semantic-model-Texas Fleet Operations",
+        "docsGap": "Installed Data Agent definition documentation shows only a warehouse data-source example; the semantic_model element shape was inferred."
+      },
+      "results": {
+        "newAgentRunA_manual": { "correct": 5, "of": 8, "wrong": ["Q1 (41 trucks, 40.2% of active fleet)", "Q2 (14 issues, 43.75%)", "Q7 (event types instead of attention reasons)"], "internalContradiction": "Q1 said 41; Q8 of the same run said 54" },
+        "newAgentRunA2_unchangedInstructions": { "Q1": "same wrong answer (41, 40.2%)", "Q2": "wrong again with different numbers (11, 40.7%)", "Q7": "reason counts correct, distinct total missing", "conclusion": "identical configuration produced a different Q7 answer between runs" },
+        "newAgentRunB_manual": { "full": 7, "partialCount": 1, "of": 8, "partialDetail": ["Q8: per-type detail consistent with 60 events but no total stated"] },
+        "existingAgentRunA_manual": { "correct": 7, "of": 8, "wrong": ["Q1: '0 trucks, 0%' despite 120 service_truck vehicles; Q5 recognized trucks. Terminology sensitivity is suggested, but the exact query/filter was not observed."] },
+        "keywordRubric": { "newRunA": "4/8", "existingRunA": "3/8", "newRunA2": "0/3", "newRunB": "6/8", "note": "Requires literal phrases, so it under-scores correct answers; manual grading is the stated basis." },
+        "latencySeconds": { "newRunA": "17-82", "newRunB": "17-57", "existingRunA": "15-53" }
+      },
+      "verification": "Read-back of both draft and published stage configuration matched the intended instructions at creation and after the Run B update. Extra claims in Q8 (1,320 readings in the last hour, 0 to 65 mph, about 28 mph average) were verified with read-only SQL.",
+      "result": "HYPOTHESIS REFUTED for the minimal-instruction configuration: three answers failed governed checks, repeated answers varied, and the new agent did not beat the existing agent (5 of 8 against 7 of 8). Exact query/measure selection was not observed. Tuned Run B improved to 7 full and 1 partial after definitions were restated in instructions; it is not an independent or held-out evaluation.",
+      "limits": [
+        "One tenant, one day, one sample per question per run except the three repeated questions.",
+        "Run B instructions were written after seeing Run A failures and use the wording of the test questions, so Run B does not show generalization.",
+        "The model-level AI preparation settings (AI instructions, synonyms, verified answers) were not tested."
+      ],
+      "timeBox": "About one hour; within the 60-minute box",
+      "feedbackIds": ["FB-034"]
+    },
+    {
+      "id": "E-AGENT-ONTOLOGY",
+      "feature": "Fabric Data Agent ontology-as-context preview; not a Rayfin graph connector",
+      "hypothesis": "The existing Fleet_Operations ontology can be mounted in the experimental agent and improve Vehicle-Alert-Region and assignment/reviewer relationship answers without copying ontology rules into agent instructions.",
+      "test": "Prepared two relationship questions with fresh read-only SQL ground truth; tried Add sources > Ontology > Fleet_Operations > Add on Standard, then once on the documentation-recommended Preview runtime.",
+      "expected": "Read-only ontology context and associated underlying sources become visible, and the two answers agree with SQL.",
+      "actual": {
+        "nativeCanvas": "Rendered entities and relationships",
+        "discovery": "Ontology menu present; Fleet_Operations found in the picker",
+        "standardAttempt": "Couldn't add ontology / Check that you can access this ontology, then try again.",
+        "previewAttempt": "Same attachment error",
+        "readBack": "Only the original semantic_model source persisted; no ontology attachment verified",
+        "groundTruth": {
+          "O1": "Five active critical alerts: SYN-026 in DFW, SYN-027/028/029 in HOU, SYN-090 in ELP, with synthetic assigned reviewers and their home regions.",
+          "O2": "SYN-027 current assignment: Synthetic Stop HOU-001, 38 minutes delayed; two active alerts (warning and critical), both assigned to Synthetic HOU Operator in HOU."
+        },
+        "ontologyBackedQuestionsAsked": 0,
+        "accuracyScore": null,
+        "rootCause": "Unknown. Resource failures included 404/502, but no correlated failing endpoint, response body or request ID was captured. Access to the canvas and SQL reads does not establish context-export permissions or source eligibility."
+      },
+      "result": "BLOCKED at ontology-context attachment; hypothesis NOT EVALUATED, not refuted. Graph querying was not substituted for ontology context.",
+      "cleanup": {
+        "experimentalRuntime": "Standard restored; empty experimental:{} object retained in draft with no Preview flag enabled",
+        "experimentalPublishedPartsUnchanged": true,
+        "workingAgentUnchanged": true,
+        "frozenApplicationFilesUnchanged": 65,
+        "deploymentsOrGraphRefreshes": 0
+      },
+      "timeBox": "30 minutes including recording and validation; stopped after two attachment attempts",
+      "evidence": "fabric/phase2/ontology-agent/observations.json",
+      "screenshot": "fabric/phase2/ontology-agent/portal-add-errors.png",
+      "feedbackIds": ["FB-035"]
+    },
+    {
+      "id": "E-TEMPLATE",
+      "feature": "Rayfin 1.36.2 local-directory template scaffolding; not a packaged or deployed fleet template",
+      "hypothesis": "The project can be scaffolded under a new identity, but the documented substitutions only parameterize project names, not organization, geography or other business settings.",
+      "test": "Scaffold the current project and a controlled synthetic fixture into separate directories outside the source tree using the installed CLI, --project-name, --yes and --skip-install with telemetry opted out. Inspect files, child synchronization, dependency declarations and authentication; remove all outputs. Repeated the pair after strengthening checks; detailed evidence records the final pair.",
+      "expected": "Root package and Rayfin identity renamed; three root README and filename project-name tokens work; custom business tokens and ordinary source contents remain unchanged.",
+      "actual": {
+        "projectScaffoldSeconds": 4.179,
+        "fixtureScaffoldSeconds": 2.836,
+        "bothExitCodesZeroAndChildSynchronizationSucceeded": true,
+        "rootPackageAndRayfinIdentityRenamed": true,
+        "dependencyDeclarationsPreserved": true,
+        "protectedHostingAndFabricAuthPreserved": true,
+        "projectNameReadmeAndFilenameTokensWorked": true,
+        "customBusinessTokensUnresolved": true,
+        "ordinarySourceAndNestedReadmeUnchanged": true,
+        "operationalStateCopied": [
+          "Approved-target configuration and original hosted redirect",
+          "Deployment metadata, environment file and Function local settings",
+          "Generated data, build output, internal plan and evidence"
+        ],
+        "gitignoreIsNotACopyFilter": "Confirmed independently using ignored synthetic text, environment and build-output files; no real credential was placed in the fixture.",
+        "defaultSkipsVerified": [".git", "node_modules", "rayfin-template.yml"]
+      },
+      "result": "CONFIRMED for this installed CLI path: local project-identity scaffolding works, custom business tokens remain unchanged, and safe distribution requires deliberate staging rather than copying the deployed working tree.",
+      "feedback": {
+        "product": "Provide a dry-run copy manifest, explicit include/exclude controls, target/environment warnings and typed business parameters.",
+        "documentation": "Explain that .gitignore is not honored; document safe deployed-app export and no-install automation.",
+        "severity": "S2 reuse friction with disclosure/rebinding risk if shared; no external disclosure or demo blocker observed"
+      },
+      "limits": [
+        "Node 26.13.0 is outside the declared Node 20/22/24 ranges; both local scaffolds succeeded, but supported-runtime portability was not tested.",
+        "No dependency install, generated-app build, sign-in or deployment was tested.",
+        "The unchanged lockfile was copied under the deliberate no-install mode; it is not evidence of install-time behavior.",
+        "No arbitrary parameter mechanism was found in the inspected guide/CLI path; no universal claim about other template systems is made."
+      ],
+      "cleanup": {
+        "frozenApplicationConfigAndManifestFilesUnchanged": 88,
+        "scratchOutputsAndFixtureRemoved": true,
+        "liveDeploymentsOrRemoteArtifactChanges": 0
+      },
+      "validation": {
+        "helperSyntax": "passed",
+        "brandingRegressionTestsPassed": 2,
+        "changedDocumentRelativeLinksChecked": 151,
+        "missingDocumentLinks": 0,
+        "markdownFilesCheckedForAccountTenantAndWorkspaceValues": 59,
+        "markdownPrivacyFindings": 0,
+        "structuredEvidenceMatchesMeasuredResults": true,
+        "scope": "No app source or configuration changed; targeted helper, branding, documentation and evidence checks only."
+      },
+      "timeBox": "20 minutes including preflight, recording and validation",
+      "evidence": "docs/evidence/template-experiment.json",
+      "helper": "tools/template-experiment.mjs",
+      "feedbackIds": ["FB-036"]
+    },
+    {
+      "id": "E-CONNECTOR-SQL",
+      "feature": "Rayfin 1.36.2 fabric-sqldatabase CLI discovery, read-only declaration, schema discovery and source inspection",
+      "hypothesis": "An existing approved SQL database can be discovered, attached read-only and inspected through the CLI in an isolated project without deployment or live-app changes.",
+      "test": "Search the approved workspace/type for the exact database; add with read only; inspect one schema-qualified Region row; follow the audience hint in a new scratch add to recover schema discovery. No second connector sample.",
+      "expected": "Exact source found, metadata generated, one real Region row returned.",
+      "actual": {
+        "search": { "seconds": 3.135, "exactMatches": 1 },
+        "initialAdd": {
+          "seconds": 3.28,
+          "exitCode": 0,
+          "topLevelStatus": "success",
+          "schemaDiscovery": "failed",
+          "reason": "audience",
+          "audienceGot": "https://api.fabric.microsoft.com",
+          "audienceExpected": "https://analysis.windows.net/powerbi/api"
+        },
+        "inspect": {
+          "seconds": 3.937,
+          "exitCode": 0,
+          "entity": "dbo.Regions",
+          "rowsReturned": 1,
+          "columnCount": 8,
+          "truncated": true,
+          "sampleCode": "ELP",
+          "sampleIsSynthetic": true
+        },
+        "discoveryRecovery": {
+          "seconds": 5.397,
+          "exitCode": 0,
+          "schemaDiscovery": "success",
+          "tableCount": 12,
+          "schemas": ["dbo", "storage"],
+          "credentialChange": "Used the Power BI-audience ambient token recommended by the error; no scope override, cache reconfiguration or permission grant.",
+          "additionalConnectorSamples": 0
+        },
+        "configuration": { "operations": ["read"], "auth": "application", "requestedAlias": "fleetSql", "actualAlias": "fleetsql" },
+        "jsonContract": "Search and inspect emitted a single JSON object. Initial and recovered add emitted a root message and two token-debug lines before JSON.",
+        "control": "The existing direct mssql helper separately read a Region code with distinct Fabric/SQL tokens; it is not counted as connector proof."
+      },
+      "result": "WORKED after documented token recovery for developer-identity CLI source preflight. Deployed app-identity access and browser integration are NOT EVALUATED.",
+      "feedback": {
+        "severity": "S2 recoverable tooling/automation friction",
+        "product": "Keep --json stdout pure; provide strict or explicit schema readiness and preflight audience requirements.",
+        "documentation": "Align skill/guide pre-deployment guidance, document the tested headless audience path and distinguish source probes from deployed app identity."
+      },
+      "limits": [
+        "Node 26.13.0 is outside declared Node 20/22/24 support; no portability certification.",
+        "No SDK install, entity generation, entity authorization, application deployment or browser connector integration was tested.",
+        "One initial harness assumption about camel-case alias preservation was corrected before any sample; it was not a platform failure.",
+        "The 12-table inventory includes platform-managed Users/storage metadata; no such table's rows were sampled."
+      ],
+      "cleanup": {
+        "frozenApplicationConfigAndManifestFilesUnchanged": 88,
+        "allScratchProjectsRemoved": true,
+        "deploymentsSourceWritesPermissionOrCapacityChanges": 0,
+        "tokensPersisted": false
+      },
+      "validation": {
+        "helperSyntax": "passed",
+        "brandingRegressionTestsPassed": 2,
+        "connectorSamplesVerified": 1,
+        "sampleMatchesReviewedSyntheticSeed": true,
+        "oneRowEightTypedColumnsAndTruncationVerified": true,
+        "recoveredMetadataTableCountVerified": 12,
+        "changedDocumentRelativeLinksChecked": 162,
+        "missingDocumentLinks": 0,
+        "markdownFilesCheckedForAccountTenantAndWorkspaceValues": 59,
+        "markdownPrivacyFindings": 0,
+        "privateValuesOrJwtPatternsInNewEvidence": 0,
+        "structuredEvidenceMatchesMeasuredResults": true
+      },
+      "timeBox": "20 minutes including preflight, recovery, recording and validation",
+      "evidence": "docs/evidence/connector-sql-experiment.json",
+      "helper": "tools/connector-sql-experiment.mjs",
+      "feedbackIds": ["FB-037"]
+    }
+  ]
+}

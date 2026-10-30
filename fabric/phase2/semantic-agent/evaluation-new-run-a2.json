@@ -1,0 +1,33 @@
+{
+  "evaluatedAt": "2026-10-30T07:47:28.599Z",
+  "note": "Programmatic key-fact check against fresh DAX; manual review of each answer is recorded separately.",
+  "rows": [
+    {
+      "id": "Q1",
+      "status": "FAIL",
+      "missing": [
+        "attention",
+        "total",
+        "share"
+      ],
+      "seconds": "37.1"
+    },
+    {
+      "id": "Q2",
+      "status": "FAIL",
+      "missing": [
+        "count",
+        "rate"
+      ],
+      "seconds": "30.8"
+    },
+    {
+      "id": "Q7",
+      "status": "FAIL",
+      "missing": [
+        "union"
+      ],
+      "seconds": "30.0"
+    }
+  ]
+}

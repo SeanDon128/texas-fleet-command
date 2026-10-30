@@ -1,0 +1,82 @@
+/// Synthetic vehicle assignment. Current means isCurrent true. Each routeCode/destination is assignment-specific, not a shared Route or Stop entity.
+entity Assignment
+	lineageTag: 00000000-0000-4000-8000-f010781f24b0
+	backingTable: Assignments
+	keyProperty: id
+
+	property id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f2bcba075907
+
+		backingConfiguration
+			valueColumn: Assignments.id
+
+	property vehicle_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fab773c6df0a
+
+		backingConfiguration
+			valueColumn: Assignments.vehicle_id
+
+	property originRegion_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4219e1e3b60
+
+		backingConfiguration
+			valueColumn: Assignments.originRegion_id
+
+	property routeCode
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f9f70702a7ec
+
+		backingConfiguration
+			valueColumn: Assignments.routeCode
+
+	property destinationName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fdb8a82837d6
+
+		backingConfiguration
+			valueColumn: Assignments.destinationName
+
+	property scheduledArrival
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-fb5c4cf5e97f
+
+		backingConfiguration
+			valueColumn: Assignments.scheduledArrival
+
+	property estimatedArrival
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f153a43158b9
+
+		backingConfiguration
+			valueColumn: Assignments.estimatedArrival
+
+	property isCurrent
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-f50e964ce423
+
+		backingConfiguration
+			valueColumn: Assignments.isCurrent
+
+	property status
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4bcacc1ccc6
+
+		backingConfiguration
+			valueColumn: Assignments.status
+
+	property delayMinutes
+		dataType: int64
+		lineageTag: 00000000-0000-4000-8000-ff600c925288
+
+		backingConfiguration
+			valueColumn: Assignments.delayMinutes
+
+	property isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-f93ce3afdeb6
+
+		backingConfiguration
+			valueColumn: Assignments.isSynthetic

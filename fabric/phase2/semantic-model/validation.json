@@ -1,0 +1,255 @@
+{
+  "modelId": "00000000-0000-4000-8000-feffe397ad55",
+  "workspaceId": "00000000-0000-4000-8000-000000000002",
+  "startedAt": "2026-10-30T06:31:56.611Z",
+  "checks": [
+    {
+      "name": "fleet-summary",
+      "verifiedAt": "2026-10-30T06:32:26.250Z",
+      "rows": [
+        {
+          "totalVehicles": 120,
+          "activeVehicles": 102,
+          "activeAlerts": 27,
+          "criticalAlerts": 5,
+          "alertVehicles": 21,
+          "criticalVehicles": 5,
+          "delayedVehicles": 16,
+          "staleVehicles": 10,
+          "freshVehicles": 110,
+          "healthVehicles": 24,
+          "outOfServiceVehicles": 18,
+          "attentionVehicles": 54,
+          "attentionRate": 0.45,
+          "averageSpeed": 46.05555555555556,
+          "currentAssignments": 120,
+          "eventsLastHour": 60
+        }
+      ]
+    },
+    {
+      "name": "regions",
+      "verifiedAt": "2026-10-30T06:32:26.740Z",
+      "rows": [
+        {
+          "region": "AMA",
+          "vehicles": 10,
+          "attention": 2,
+          "rate": 0.2,
+          "alertVehicles": 1,
+          "activeAlerts": 1,
+          "delayed": 0,
+          "stale": 0
+        },
+        {
+          "region": "AUS",
+          "vehicles": 14,
+          "attention": 5,
+          "rate": 0.35714285714285715,
+          "alertVehicles": 1,
+          "activeAlerts": 1,
+          "delayed": 1,
+          "stale": 0
+        },
+        {
+          "region": "CRP",
+          "vehicles": 10,
+          "attention": 5,
+          "rate": 0.5,
+          "alertVehicles": 1,
+          "activeAlerts": 2,
+          "delayed": 1,
+          "stale": 1
+        },
+        {
+          "region": "DFW",
+          "vehicles": 26,
+          "attention": 11,
+          "rate": 0.4230769230769231,
+          "alertVehicles": 5,
+          "activeAlerts": 6,
+          "delayed": 3,
+          "stale": 2
+        },
+        {
+          "region": "ELP",
+          "vehicles": 8,
+          "attention": 4,
+          "rate": 0.5,
+          "alertVehicles": 2,
+          "activeAlerts": 2,
+          "delayed": 0,
+          "stale": 1
+        },
+        {
+          "region": "HOU",
+          "vehicles": 28,
+          "attention": 17,
+          "rate": 0.6071428571428571,
+          "alertVehicles": 8,
+          "activeAlerts": 11,
+          "delayed": 9,
+          "stale": 4
+        },
+        {
+          "region": "LBB",
+          "vehicles": 10,
+          "attention": 4,
+          "rate": 0.4,
+          "alertVehicles": 1,
+          "activeAlerts": 1,
+          "delayed": 0,
+          "stale": 1
+        },
+        {
+          "region": "SAT",
+          "vehicles": 14,
+          "attention": 6,
+          "rate": 0.42857142857142855,
+          "alertVehicles": 2,
+          "activeAlerts": 3,
+          "delayed": 2,
+          "stale": 1
+        }
+      ]
+    },
+    {
+      "name": "critical-vehicles",
+      "verifiedAt": "2026-10-30T06:32:27.136Z",
+      "rows": [
+        {
+          "vehicle": "SYN-026",
+          "critical": 1,
+          "active": 1
+        },
+        {
+          "vehicle": "SYN-027",
+          "critical": 1,
+          "active": 2
+        },
+        {
+          "vehicle": "SYN-028",
+          "critical": 1,
+          "active": 2
+        },
+        {
+          "vehicle": "SYN-029",
+          "critical": 1,
+          "active": 2
+        },
+        {
+          "vehicle": "SYN-090",
+          "critical": 1,
+          "active": 1
+        }
+      ]
+    },
+    {
+      "name": "stale-vehicles",
+      "verifiedAt": "2026-10-30T06:32:27.576Z",
+      "rows": [
+        {
+          "vehicle": "SYN-025",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-026",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-051",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-052",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-053",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-054",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-082",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-090",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-100",
+          "stale": 1
+        },
+        {
+          "vehicle": "SYN-110",
+          "stale": 1
+        }
+      ]
+    },
+    {
+      "name": "syn-027-drillthrough",
+      "verifiedAt": "2026-10-30T06:32:28.039Z",
+      "rows": [
+        {
+          "vehicle": "SYN-027",
+          "delayMinutes": 38,
+          "activeAlerts": 2,
+          "criticalAlerts": 1,
+          "stale": 0,
+          "attention": 1,
+          "currentAssignments": 1
+        }
+      ]
+    },
+    {
+      "name": "scenario-time",
+      "verifiedAt": "2026-10-30T06:32:29.905Z",
+      "rows": [
+        {
+          "asOf": "2026-10-27T15:00:00"
+        }
+      ]
+    }
+  ],
+  "sourceCategories": {
+    "assignmentStatus": [
+      {
+        "status": "active",
+        "n": 120
+      },
+      {
+        "status": "completed",
+        "n": 30
+      }
+    ],
+    "alertStatus": [
+      {
+        "status": "open",
+        "n": 27
+      },
+      {
+        "status": "resolved",
+        "n": 13
+      }
+    ],
+    "healthStatus": [
+      {
+        "healthStatus": "ok",
+        "n": 96
+      },
+      {
+        "healthStatus": "service_needed",
+        "n": 7
+      },
+      {
+        "healthStatus": "watch",
+        "n": 17
+      }
+    ]
+  },
+  "completedAt": "2026-10-30T06:32:29.956Z"
+}

@@ -1,0 +1,79 @@
+{
+  "experiment": "E-AGENT-ONTOLOGY",
+  "feedbackId": "FB-035",
+  "date": "2026-10-30",
+  "result": "BLOCKED_AT_CONTEXT_ATTACHMENT",
+  "hypothesisStatus": "NOT_EVALUATED",
+  "attempts": [
+    {
+      "runtime": "Standard",
+      "steps": ["Open experimental semantic agent", "Add sources", "Ontology", "Select Fleet_Operations", "Add"],
+      "result": "Could not attach ontology",
+      "title": "Couldn't add ontology",
+      "message": "Check that you can access this ontology, then try again."
+    },
+    {
+      "runtime": "Preview",
+      "reason": "The official ontology-context guide recommends the Preview runtime.",
+      "steps": ["Switch experimental draft to Preview", "Repeat the same ontology selection and Add"],
+      "result": "Could not attach ontology",
+      "title": "Couldn't add ontology",
+      "message": "Check that you can access this ontology, then try again."
+    }
+  ],
+  "positiveObservations": [
+    "The native Fleet_Operations canvas rendered entities and relationships.",
+    "The documented Add sources > Ontology menu was present.",
+    "Fleet_Operations was listed in the ontology picker.",
+    "Fresh read-only SQL queries returned the two planned relationship answer sets."
+  ],
+  "diagnostics": {
+    "console": "404 and 502 resource failures were observed around the attempts.",
+    "limitation": "No correlated failing endpoint, response body or request ID was captured. These status codes do not establish the cause of the attachment failure.",
+    "rootCause": "UNKNOWN",
+    "permissionConclusion": "The canvas and SQL reads worked for the caller, but this does not prove all context-export permissions or source eligibility requirements were satisfied.",
+    "publicDefinitionApi": "Data Agent source types include graph but not ontology. Graph querying is not equivalent to ontology-as-context; no guessed payload or undocumented endpoint was submitted."
+  },
+  "answerEvaluation": {
+    "questionsPrepared": 2,
+    "ontologyBackedQuestionsAsked": 0,
+    "score": null,
+    "reason": "No ontology was attached. Asking the existing semantic-model source would not test ontology context.",
+    "groundTruthFile": "ground-truth.json"
+  },
+  "cleanup": {
+    "experimentalRuntimeRestored": "Standard",
+    "experimentalPublishedPartsUnchanged": true,
+    "experimentalDraftDifference": "The portal retained an empty experimental:{} object; that property was absent before the runtime toggle. The Preview flag is not enabled.",
+    "existingWorkingAgentUnchanged": true,
+    "frozenApplicationFilesUnchanged": 65,
+    "appDeployment": "None",
+    "graphRefreshOrMaterialization": "None requested",
+    "permissionOrCapacityChanges": "None"
+  },
+  "evidence": [
+    "baseline.json",
+    "ground-truth.json",
+    "portal-add-errors.png",
+    "experimental-inspection.json",
+    "isolation-verification.json"
+  ],
+  "validation": {
+    "helperSyntax": "Passed node --check",
+    "focusedTests": {
+      "command": "node --test .\\tools\\phase2\\fleet-semantics.test.mjs .\\tools\\phase2\\ontology.test.mjs .\\tests\\branding.test.mjs",
+      "passed": 11,
+      "failed": 0
+    },
+    "brandingFindings": 0,
+    "touchedMarkdownFilesChecked": 6,
+    "brokenRelativeLinks": 0,
+    "accountTenantWorkspaceValueHitsInTouchedMarkdown": 0,
+    "evidenceJson": "Parsed successfully"
+  },
+  "documentation": [
+    "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-ontology-sources",
+    "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-runtime",
+    "https://learn.microsoft.com/en-us/rest/api/fabric/dataagent/items/get-data-agent-definition"
+  ]
+}

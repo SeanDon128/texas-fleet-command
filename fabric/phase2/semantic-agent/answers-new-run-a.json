@@ -1,0 +1,72 @@
+{
+  "agent": "new",
+  "agentId": "00000000-0000-4000-8000-f2830af2ed2e",
+  "tag": "run-a",
+  "recordedAt": "2026-10-30T07:33:14.728Z",
+  "results": [
+    {
+      "id": "Q1",
+      "question": "How many trucks currently need attention, and what share of the fleet is that?",
+      "askedAt": "2026-10-30T07:26:42.819Z",
+      "elapsedMs": 31380,
+      "truncated": false,
+      "answer": "There are 41 trucks that currently need attention.  \n\nThey represent about **40.2% of the active fleet**."
+    },
+    {
+      "id": "Q2",
+      "question": "Which Texas region has the most issues, by count and by percentage?",
+      "askedAt": "2026-10-30T07:27:14.200Z",
+      "elapsedMs": 39344,
+      "truncated": false,
+      "answer": "The synthetic Texas fleet data shows:\n\n- **By issue count:**  \n  - **Synthetic HOU Region (HOU)** has the most issues with **14 issues**.\n\n- **By percentage of all issues:**  \n  - **Synthetic HOU Region (HOU)** also has the highest share at **43.75% of all issues**.\n\nFor context, total issues across all regions are 32; HOU’s 14 issues make it the top region both in raw count and in percentage."
+    },
+    {
+      "id": "Q3",
+      "question": "Which vehicles have active critical alerts?",
+      "askedAt": "2026-10-30T07:27:53.544Z",
+      "elapsedMs": 17097,
+      "truncated": false,
+      "answer": "The following vehicles currently have active critical alerts:\n\n- Vehicle code **SYN-026** – call sign **Unit 026** – **1** active critical alert  \n- Vehicle code **SYN-027** – call sign **Unit 027** – **1** active critical alert  \n- Vehicle code **SYN-028** – call sign **Unit 028** – **1** active critical alert  \n- Vehicle code **SYN-029** – call sign **Unit 029** – **1** active critical alert  \n- Vehicle code **SYN-090** – call sign **Unit 090** – **1** active critical alert"
+    },
+    {
+      "id": "Q4",
+      "question": "Summarize fleet health without confusing operational status, delay and alert severity.",
+      "askedAt": "2026-10-30T07:28:10.641Z",
+      "elapsedMs": 63287,
+      "truncated": false,
+      "answer": "Here’s a clean summary that keeps health, operations, delay, and alerts separate.\n\n1. Vehicle health status (mechanical/condition)  \n- OK: 96 vehicles  \n- Watch (minor concerns / monitor): 17 vehicles  \n- Service needed: 7 vehicles  \nOverall, most of the fleet is mechanically healthy, with a small subset needing attention soon (7) and a moderate number to keep an eye on (17).\n\n2. Vehicle operating status (what they’re doing right now)  \n- En route: 72 vehicles  \n- At stop: 16 vehicles  \n- Idle: 14 vehicles  \n- Maintenance: 8 vehicles  \n- Offline: 10 vehicles  \nMost vehicles are actively operating (en route or at stops). A smaller group is in maintenance or offline; this is about operations and availability, not health or delay.\n\n3. Delay status and delay minutes (schedule performance)  \n\nAssignments:  \n- Delayed: 30 assignments, average delay ~22 minutes  \n- On time / no delay: 90 assignments, 0 minutes average delay  \n\nVehicles (schedule status at vehicle level):  \n- Delayed: 16 vehicles, average delay ~32 minutes  \n- At risk (could become delayed): 14 vehicles, average delay ~10 minutes  \n- On time: 58 vehicles, 0 minutes delay  \n- Not applicable: 32 vehicles, 0 minutes delay  \n\nDelays describe schedule performance, not whether the vehicle is mechanically healthy or in service.\n\n4. Alerts and their severity (system warnings/notifications)  \n\nBy severity:  \n- Critical alerts: 5  \n- Warning alerts: 13  \n- Info alerts: 9  \n\nBy status:  \n- Active alerts: 27  \n- Resolved alerts: 13  \n\nAlert severity reflects how urgent an issue is according to monitoring rules; it is not the same as vehicle health, operations, or delay, though they may be related in practice."
+    },
+    {
+      "id": "Q5",
+      "question": "Which trucks stopped reporting relative to the scenario clock?",
+      "askedAt": "2026-10-30T07:29:13.928Z",
+      "elapsedMs": 38859,
+      "truncated": false,
+      "answer": "Relative to the Scenario Clock, these trucks have stopped reporting telemetry:\n\n- SYN-025 — Call sign: Unit 025 — Type: service_truck — Last telemetry: 10/27/2026 2:38:00 PM — Status: offline  \n- SYN-026 — Call sign: Unit 026 — Type: service_truck — Last telemetry: 10/27/2026 2:22:00 PM — Status: offline  \n- SYN-051 — Call sign: Unit 051 — Type: service_truck — Last telemetry: 10/27/2026 2:37:00 PM — Status: offline  \n- SYN-052 — Call sign: Unit 052 — Type: service_truck — Last telemetry: 10/27/2026 2:35:00 PM — Status: offline  \n- SYN-053 — Call sign: Unit 053 — Type: service_truck — Last telemetry: 10/27/2026 2:38:00 PM — Status: offline  \n- SYN-054 — Call sign: Unit 054 — Type: service_truck — Last telemetry: 10/27/2026 2:26:00 PM — Status: offline  \n- SYN-082 — Call sign: Unit 082 — Type: service_truck — Last telemetry: 10/27/2026 2:40:00 PM — Status: offline  \n- SYN-090 — Call sign: Unit 090 — Type: service_truck — Last telemetry: 10/27/2026 2:16:00 PM — Status: offline  \n- SYN-100 — Call sign: Unit 100 — Type: service_truck — Last telemetry: 10/27/2026 2:32:00 PM — Status: offline  \n- SYN-110 — Call sign: Unit 110 — Type: service_truck — Last telemetry: 10/27/2026 2:29:00 PM — Status: offline  \n\nAll of these are synthetic service_truck units in the Texas fleet model whose telemetry is no longer current relative to the scenario clock."
+    },
+    {
+      "id": "Q6",
+      "question": "Why should I investigate SYN-027, and what is its current work?",
+      "askedAt": "2026-10-30T07:29:52.788Z",
+      "elapsedMs": 82195,
+      "truncated": false,
+      "answer": "Here’s what the data shows for SYN-027 in the synthetic Texas fleet.\n\nWhy you should investigate SYN-027\n- It has active alerts, including **1 critical alert** (2 total).\n- It is currently **delayed** by **38 minutes**, with explicit **delay-related alerts (2)**.\n- The system has summarized it as an investigation candidate:  \n  - “Investigation Reasons Summary: **Alerts: 1 critical; Delayed by 38 minutes;**”\n\nEven though its **health status is “ok”** and there are **no health/telemetry/operations alerts** flagged, the combination of:\n- a critical alert in some area, and  \n- a substantial schedule delay (38 minutes)  \nis enough to warrant checking for operational issues, route problems, or constraint violations.\n\nWhat SYN-027 is working on now\n- **Vehicle Code:** SYN-027  \n- **Call Sign:** Unit 027  \n- **Operating Status:** **en_route** (currently on the move)  \n- **Speed:** 38 mph  \n- **Energy Level:** 45%  \n- **Telemetry:** “fresh” as of **2026-10-27 14:54:00 UTC**\n\nCurrent assignment\n- **Has a current assignment:** Yes (1 active assignment)\n- **Destination:** Synthetic Stop **HOU-001**  \n- **Route:** **SYN-ROUTE-027**  \n- **Assignment Status:** **active**  \n- **Estimated Arrival (ETA):** **2026-10-27 17:45:00 UTC**  \n- **Scheduled Arrival:** **2026-10-27 17:07:00 UTC** (basis of the 38-minute delay)\n\nIn short: you should investigate SYN-027 because it is **en route on an active assignment to HOU-001**, is running **38 minutes late**, and has **one critical active alert**, even though its reported health is currently “ok.”"
+    },
+    {
+      "id": "Q7",
+      "question": "What are the most common reasons vehicles need attention?",
+      "askedAt": "2026-10-30T07:31:14.983Z",
+      "elapsedMs": 47639,
+      "truncated": false,
+      "answer": "Based on the fleet’s recent operational data, the most common “needs attention” reasons all come from fleet events, and they are tied for first place by frequency:\n\n1. **Delay updates** (`delay_update`) – frequent notifications that a vehicle’s schedule or ETA has changed enough to matter.\n2. **Status changes** (`status_change`) – operational state shifts (e.g., going in/out of service, switching assignment states) that require monitoring or follow‑up.\n3. **Telemetry lost** (`telemetry_lost`) – the system stops receiving location/speed data from a vehicle, triggering attention to connectivity or device issues.\n4. **Telemetry restored** (`telemetry_restored`) – the data feed comes back, signaling a transition that dispatchers still need to register and possibly reconcile with any gaps.\n\nThese four categories are currently the top drivers of “attention-needed” activity in the synthetic Texas fleet, all occurring with equal frequency in the data I can see."
+    },
+    {
+      "id": "Q8",
+      "question": "What changed in the last scenario hour?",
+      "askedAt": "2026-10-30T07:32:02.622Z",
+      "elapsedMs": 72106,
+      "truncated": false,
+      "answer": "In the last scenario hour (relative to the Scenario Clock), the synthetic Texas fleet saw:\n\n- **Alerts**\n  - Currently **27 active alerts**, of which **5 are critical**.  \n  - The dataset does not provide counts of how many were newly raised, acknowledged, or resolved in the last hour—only the current snapshot.\n\n- **Assignments**\n  - **120 current assignments** in progress.\n  - Average delay on current assignments is **5 minutes**, with **30 assignments delayed**.\n\n- **Fleet events in the last scenario hour**\n  - **15 delay_update events**\n  - **15 status_change events**\n  - **15 telemetry_lost events**\n  - **15 telemetry_restored events**\n\n- **Telemetry in the last scenario hour**\n  - **1,320 telemetry readings** received.\n  - Observed speeds ranged from **0 mph** (stopped) to **65 mph**.\n  - **Average observed speed** over these readings was **28 mph**.\n\n- **Vehicle snapshot (current state)**\n  - **120 total vehicles**\n  - **102 active**, **18 out of service**\n  - **Average en-route speed** (for moving vehicles) is **46 mph**\n  - **16 delayed vehicles**\n  - **24 vehicles with health attention flags**\n  - **21 vehicles with active alerts**, including **5 with critical alerts**\n  - **10 vehicles not reporting telemetry**, **110 reporting normally**\n  - **54 vehicles needing some kind of attention** (e.g., health or alerts)\n\nSo, in the last scenario hour you had moderate event activity (60 fleet events total) and steady telemetry flow, with a current picture of a mostly active fleet but a non-trivial subset delayed, not reporting, or requiring attention."
+    }
+  ]
+}

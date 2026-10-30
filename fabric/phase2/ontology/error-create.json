@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-28T21:09:17.565Z",
+  "command": "create",
+  "message": "Fabric POST workspaces/00000000-0000-4000-8000-000000000002/ontologies: HTTP 403; request not supplied; {\"requestId\":\"00000000-0000-4000-8000-f29dfd3a3344\",\"errorCode\":\"FeatureNotAvailable\",\"message\":\"The feature is not available\",\"isRetriable\":false}"
+}

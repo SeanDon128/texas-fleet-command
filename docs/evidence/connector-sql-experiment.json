@@ -1,0 +1,498 @@
+{
+  "id": "E-CONNECTOR-SQL",
+  "feedbackId": "FB-037",
+  "startedAt": "2026-10-30T08:35:27.401Z",
+  "cliVersion": "1.36.2",
+  "nodeVersion": "v26.13.0",
+  "hypothesis": "The existing Fabric SQL database can be discovered, attached read-only and inspected through the CLI in an isolated project without deploying or changing the working app.",
+  "expected": "Search identifies the approved database; add writes read-only application-auth configuration plus schema metadata; one inspection returns one real Region row.",
+  "safeguards": [
+    "Scratch project outside source tree",
+    "Read-only operations",
+    "One connector sample maximum; stop on failure",
+    "No deployment, package install, permissions, capacity or source-data changes",
+    "Tokens passed only in child process environment, never persisted"
+  ],
+  "steps": [
+    {
+      "name": "catalog",
+      "seconds": 2.162,
+      "exitCode": 0,
+      "singleJsonObject": true,
+      "diagnosticLines": [],
+      "response": {
+        "status": "ok",
+        "schemaVersion": 1,
+        "count": 4,
+        "types": [
+          {
+            "type": "fabric-semanticmodel",
+            "category": "function-bridge",
+            "description": "Fabric semantic model",
+            "defaultAuth": "delegated",
+            "allowedAuthTypes": [
+              "delegated"
+            ],
+            "dialect": null,
+            "allowedOperations": [
+              "executeQuery"
+            ],
+            "requiredConfig": [
+              "workspaceId",
+              "itemId"
+            ],
+            "discoverableItemTypes": [
+              "SemanticModel"
+            ],
+            "requiresVersion": true,
+            "defaultVersion": "1",
+            "packages": [
+              {
+                "name": "@microsoft/rayfin-connector-fabric-semanticmodel",
+                "role": "marker",
+                "version": "1.36.2"
+              },
+              {
+                "name": "@microsoft/rayfin-connectors",
+                "role": "runtime",
+                "version": "1.36.2"
+              }
+            ]
+          },
+          {
+            "type": "fabric-sqlanalytics",
+            "category": "graphql-entities",
+            "description": "Fabric SQL Analytics endpoint",
+            "defaultAuth": "application",
+            "allowedAuthTypes": [
+              "delegated",
+              "application"
+            ],
+            "dialect": "fabric-sqlanalytics",
+            "allowedOperations": [
+              "read"
+            ],
+            "requiredConfig": [
+              "workspaceId",
+              "itemId"
+            ],
+            "discoverableItemTypes": [
+              "Lakehouse"
+            ],
+            "requiresVersion": false,
+            "packages": [
+              {
+                "name": "@microsoft/rayfin-connector-fabric-graphql",
+                "role": "marker",
+                "version": "1.36.2"
+              },
+              {
+                "name": "@microsoft/rayfin-connectors",
+                "role": "runtime",
+                "version": "1.36.2"
+              }
+            ]
+          },
+          {
+            "type": "fabric-sqldatabase",
+            "category": "graphql-entities",
+            "description": "Fabric SQL Database",
+            "defaultAuth": "application",
+            "allowedAuthTypes": [
+              "delegated",
+              "application"
+            ],
+            "dialect": "mssql",
+            "allowedOperations": [
+              "read",
+              "create",
+              "update",
+              "delete"
+            ],
+            "requiredConfig": [
+              "workspaceId",
+              "itemId"
+            ],
+            "discoverableItemTypes": [
+              "SQLDatabase"
+            ],
+            "requiresVersion": false,
+            "packages": [
+              {
+                "name": "@microsoft/rayfin-connector-fabric-graphql",
+                "role": "marker",
+                "version": "1.36.2"
+              },
+              {
+                "name": "@microsoft/rayfin-connectors",
+                "role": "runtime",
+                "version": "1.36.2"
+              }
+            ]
+          },
+          {
+            "type": "fabric-warehouse",
+            "category": "graphql-entities",
+            "description": "Fabric Warehouse",
+            "defaultAuth": "application",
+            "allowedAuthTypes": [
+              "delegated",
+              "application"
+            ],
+            "dialect": "fabric-warehouse",
+            "allowedOperations": [
+              "read",
+              "create",
+              "update",
+              "delete"
+            ],
+            "requiredConfig": [
+              "workspaceId",
+              "itemId"
+            ],
+            "discoverableItemTypes": [
+              "Warehouse"
+            ],
+            "requiresVersion": false,
+            "packages": [
+              {
+                "name": "@microsoft/rayfin-connector-fabric-graphql",
+                "role": "marker",
+                "version": "1.36.2"
+              },
+              {
+                "name": "@microsoft/rayfin-connectors",
+                "role": "runtime",
+                "version": "1.36.2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "search",
+      "seconds": 3.135,
+      "exitCode": 0,
+      "singleJsonObject": true,
+      "diagnosticLines": [],
+      "response": {
+        "status": "ok",
+        "query": "tx-fleet-command",
+        "scope": {
+          "workspaceId": "<workspaceId>"
+        },
+        "count": 1,
+        "sources": [
+          {
+            "connectorType": "fabric-sqldatabase",
+            "itemType": "SQLDatabase",
+            "workspaceId": "<workspaceId>",
+            "workspaceName": "Trucks Rayfin",
+            "itemId": "<sqlDatabaseId>",
+            "displayName": "tx-fleet-command",
+            "capabilities": {
+              "operations": [
+                "read",
+                "create",
+                "update",
+                "delete"
+              ],
+              "defaultAuth": "application",
+              "requiresVersion": false
+            },
+            "workspaceRole": "Admin",
+            "addEligible": true,
+            "suggestedName": "tx-fleet-command",
+            "addCommand": "rayfin connector add --type fabric-sqldatabase --workspace-id <workspaceId> --item-id <sqlDatabaseId> --name tx-fleet-command"
+          }
+        ]
+      }
+    },
+    {
+      "name": "add",
+      "seconds": 3.28,
+      "exitCode": 0,
+      "singleJsonObject": false,
+      "diagnosticLines": [
+        "👀 Found Rayfin project root: <scratch>",
+        "[rayfin] using ambient token from RAYFIN_TOKEN",
+        "[rayfin] using ambient token from RAYFIN_TOKEN"
+      ],
+      "response": {
+        "status": "success",
+        "action": "connector.add",
+        "name": "fleetsql",
+        "type": "fabric-sqldatabase",
+        "workspaceId": "<workspaceId>",
+        "itemId": "<sqlDatabaseId>",
+        "operations": [
+          "read"
+        ],
+        "overwritten": false,
+        "schemaDiscovery": {
+          "status": "failed",
+          "reason": "audience",
+          "error": "Access token has the wrong audience for schema discovery on connector \"fleetsql\" (got https://api.fabric.microsoft.com, expected https://analysis.windows.net/powerbi/api).",
+          "recovery": "RAYFIN_TOKEN is passed through unchanged regardless of the scopes this command requests. Unset it, or set it to a token for https://analysis.windows.net/powerbi/api, then retry."
+        },
+        "install": {
+          "packages": [
+            "@microsoft/rayfin-connector-fabric-graphql@1.36.2",
+            "@microsoft/rayfin-connectors@1.36.2"
+          ],
+          "command": "npm install @microsoft/rayfin-connector-fabric-graphql@1.36.2 @microsoft/rayfin-connectors@1.36.2"
+        },
+        "agentFiles": {
+          "installed": [
+            "skill:rayfin-connectors"
+          ],
+          "updated": [],
+          "warnings": []
+        },
+        "wiring": {
+          "wired": [],
+          "runtimes": [],
+          "skipped": [
+            {
+              "name": "fleetsql",
+              "reason": "rayfin/connectors/fleetsql/schema.ts does not export `connectorConfig` yet"
+            }
+          ],
+          "action": "absent"
+        }
+      }
+    },
+    {
+      "name": "inspect",
+      "seconds": 3.937,
+      "exitCode": 0,
+      "singleJsonObject": true,
+      "diagnosticLines": [],
+      "response": {
+        "status": "ok",
+        "connectorType": "fabric-sqldatabase",
+        "queryMode": "structured",
+        "entity": "dbo.Regions",
+        "rowsReturned": 1,
+        "truncated": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "uniqueidentifier"
+          },
+          {
+            "name": "centerLat",
+            "type": "decimal"
+          },
+          {
+            "name": "centerLng",
+            "type": "decimal"
+          },
+          {
+            "name": "code",
+            "type": "text"
+          },
+          {
+            "name": "hubName",
+            "type": "text"
+          },
+          {
+            "name": "isSynthetic",
+            "type": "boolean"
+          },
+          {
+            "name": "name",
+            "type": "text"
+          },
+          {
+            "name": "zoom",
+            "type": "integer"
+          }
+        ],
+        "rows": [
+          {
+            "id": "00000000-0000-4000-8000-f50556e6908d",
+            "centerLat": 31.7619,
+            "centerLng": -106.485,
+            "code": "ELP",
+            "hubName": "Synthetic Hub ELP",
+            "isSynthetic": true,
+            "name": "Synthetic ELP Region",
+            "zoom": 10
+          }
+        ]
+      }
+    },
+    {
+      "name": "add-recovery",
+      "seconds": 5.397,
+      "exitCode": 0,
+      "singleJsonObject": false,
+      "diagnosticLines": [
+        "👀 Found Rayfin project root: <scratch>",
+        "[rayfin] using ambient token from RAYFIN_TOKEN",
+        "[rayfin] using ambient token from RAYFIN_TOKEN"
+      ],
+      "response": {
+        "status": "success",
+        "action": "connector.add",
+        "name": "fleetsql",
+        "type": "fabric-sqldatabase",
+        "workspaceId": "<workspaceId>",
+        "itemId": "<sqlDatabaseId>",
+        "operations": [
+          "read"
+        ],
+        "overwritten": false,
+        "schemaDiscovery": {
+          "status": "success"
+        },
+        "install": {
+          "packages": [
+            "@microsoft/rayfin-connector-fabric-graphql@1.36.2",
+            "@microsoft/rayfin-connectors@1.36.2"
+          ],
+          "command": "npm install @microsoft/rayfin-connector-fabric-graphql@1.36.2 @microsoft/rayfin-connectors@1.36.2"
+        },
+        "agentFiles": {
+          "installed": [
+            "skill:rayfin-connectors"
+          ],
+          "updated": [],
+          "warnings": []
+        },
+        "wiring": {
+          "wired": [],
+          "runtimes": [],
+          "skipped": [
+            {
+              "name": "fleetsql",
+              "reason": "rayfin/connectors/fleetsql/schema.ts does not export `connectorConfig` yet"
+            }
+          ],
+          "action": "absent"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Node 26 is outside CLI declared Node 20/22/24 support; no supported-runtime portability claim.",
+    "CLI source inspection does not prove deployed application-identity access, generated entity authorization or browser integration.",
+    "Connector SDK is not installed; no entity generation or frontend wiring is attempted."
+  ],
+  "priorHarnessCorrection": {
+    "completedAt": "2026-10-30T08:34:52.527Z",
+    "cause": "The helper assumed the requested camel-case alias was retained. The CLI normalized fleetSql to fleetsql; now it consumes the returned name.",
+    "stage": "Before direct SQL control or connector inspection; no connector sample had run.",
+    "firstAttemptFrozenFilesUnchanged": true,
+    "firstAttemptScratchRemoved": true
+  },
+  "approvedIdentityAndActiveCapacityVerified": true,
+  "tokenAudiences": {
+    "controlPlane": "https://api.fabric.microsoft.com",
+    "cliDefaultDataPlane": "https://analysis.windows.net/powerbi/api"
+  },
+  "sourceVerified": true,
+  "scaffold": {
+    "requestedAlias": "fleetSql",
+    "connector": "fleetsql",
+    "type": "fabric-sqldatabase",
+    "operations": [
+      {
+        "name": "read"
+      }
+    ],
+    "auth": "application",
+    "schemaPlaceholderExists": true,
+    "metadataExists": false,
+    "dependenciesInstalled": false
+  },
+  "separateDirectSqlControl": {
+    "route": "Existing project mssql helper with distinct Fabric and SQL-audience tokens; NOT a connector result",
+    "succeeded": true,
+    "entity": "dbo.Regions",
+    "rows": [
+      {
+        "code": "AMA"
+      }
+    ]
+  },
+  "result": "WORKED after documented token recovery: read-only declaration, schema discovery and one CLI source sample verified. Deployed application integration not tested.",
+  "isolation": {
+    "frozenFileCount": 88,
+    "changedFiles": []
+  },
+  "scratchRemoved": true,
+  "completedAt": "2026-10-30T08:37:59.425Z",
+  "recoveryStartedAt": "2026-10-30T08:37:36.423Z",
+  "discoveryRecovery": {
+    "credentialChange": "Followed the printed hint: Power BI-audience RAYFIN_TOKEN instead of Fabric-audience token.",
+    "metadataExists": true,
+    "additionalConnectorSamples": 0,
+    "readOnlyAndApplicationAuthPreserved": true,
+    "metadata": {
+      "schemas": [
+        {
+          "schemaName": "dbo",
+          "tables": [
+            {
+              "tableName": "Alerts",
+              "columnCount": 17
+            },
+            {
+              "tableName": "Assignments",
+              "columnCount": 13
+            },
+            {
+              "tableName": "Crews",
+              "columnCount": 4
+            },
+            {
+              "tableName": "FleetEvents",
+              "columnCount": 9
+            },
+            {
+              "tableName": "OperatorNotes",
+              "columnCount": 6
+            },
+            {
+              "tableName": "Regions",
+              "columnCount": 8
+            },
+            {
+              "tableName": "SimClocks",
+              "columnCount": 5
+            },
+            {
+              "tableName": "TeamMembers",
+              "columnCount": 7
+            },
+            {
+              "tableName": "TelemetryPings",
+              "columnCount": 7
+            },
+            {
+              "tableName": "Users",
+              "columnCount": 2
+            },
+            {
+              "tableName": "Vehicles",
+              "columnCount": 20
+            }
+          ]
+        },
+        {
+          "schemaName": "storage",
+          "tables": [
+            {
+              "tableName": "objects",
+              "columnCount": 16
+            }
+          ]
+        }
+      ],
+      "tableCount": 12
+    }
+  }
+}

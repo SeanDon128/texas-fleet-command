@@ -1,0 +1,7 @@
+{
+  "recordedAt": "2026-10-29T19:59:19.058Z",
+  "reason": "User confirmed tenant Ontology preview enabled and explicitly requested retry.",
+  "priorAttempt": "attempts/2026-10-28T21-09-11.954Z/",
+  "existingOntologyCount": 0,
+  "workspaceId": "00000000-0000-4000-8000-000000000002"
+}

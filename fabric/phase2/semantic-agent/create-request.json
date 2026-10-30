@@ -1,0 +1,9 @@
+{
+  "displayName": "tx-fleet-semantic-agent",
+  "description": "Zava Security (fictional) read-only Q&A grounded on the Texas Fleet Operations semantic model. Synthetic demo data.",
+  "counts": {
+    "tables": 7,
+    "columns": 42,
+    "measures": 17
+  }
+}

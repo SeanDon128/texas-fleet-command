@@ -1,0 +1,27 @@
+model Model
+
+ref table Vehicles
+ref table Regions
+ref table Alerts
+ref table Assignments
+ref table FleetEvents
+ref table SimClocks
+ref table TeamMembers
+
+ref entity Vehicle
+ref entity Region
+ref entity Alert
+ref entity Assignment
+ref entity FleetEvent
+ref entity ScenarioClock
+ref entity TeamMember
+
+ref namespace default
+
+ref rule ActiveAlert
+ref rule DelayedVehicle
+ref rule StaleTelemetry
+ref rule NeedsAttention
+ref rule CurrentAssignment
+ref rule SyntheticTimeSemantics
+

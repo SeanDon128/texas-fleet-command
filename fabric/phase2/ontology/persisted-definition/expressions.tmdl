@@ -1,0 +1,7 @@
+expression DatabaseQuery =
+		let
+		    database = Sql.Database("<sql-analytics-endpoint>", "00000000-0000-4000-8000-000000000007")
+		in
+		    database
+	lineageTag: 00000000-0000-4000-8000-f709f003a313
+

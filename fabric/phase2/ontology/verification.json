@@ -1,0 +1,64 @@
+{
+  "verifiedAt": "2026-10-30T06:34:01.908Z",
+  "item": {
+    "id": "00000000-0000-4000-8000-f4fa252bba1a",
+    "type": "Ontology",
+    "displayName": "Fleet_Operations",
+    "description": "Zava Security (fictional) Texas fleet business context over existing SQLDatabase replica bindings and scenario time. Synthetic data only. Associated graph resources exist; no graph refresh was explicitly requested.",
+    "workspaceId": "00000000-0000-4000-8000-000000000002",
+    "logicalId": null,
+    "properties": {
+      "generation": 2
+    }
+  },
+  "persistedPartCount": 27,
+  "entities": [
+    "Vehicle",
+    "Region",
+    "Alert",
+    "Assignment",
+    "FleetEvent",
+    "ScenarioClock",
+    "TeamMember"
+  ],
+  "relationships": [
+    "operatesIn",
+    "assignedToVehicle",
+    "affectsVehicle",
+    "observedOnVehicle",
+    "concernsAlert",
+    "assignedForReview",
+    "teamBasedIn"
+  ],
+  "rules": [
+    "ActiveAlert",
+    "DelayedVehicle",
+    "StaleTelemetry",
+    "NeedsAttention",
+    "CurrentAssignment",
+    "SyntheticTimeSemantics"
+  ],
+  "definitionPersisted": true,
+  "bindingDefinitionsPersisted": true,
+  "ontologyDataQueryVerified": false,
+  "graphMaterializationRequested": false,
+  "graphDataLoadVerified": false,
+  "associatedResources": [
+    {
+      "id": "00000000-0000-4000-8000-f65519034aa5",
+      "type": "GraphModel",
+      "displayName": "Fleet_Operations_graph_00000000000040008000f4fa252bba1a"
+    },
+    {
+      "id": "00000000-0000-4000-8000-f829ab153164",
+      "type": "Eventhouse",
+      "displayName": "Fleet_Operations_eh_00000000000040008000f4fa252bba1a"
+    },
+    {
+      "id": "00000000-0000-4000-8000-f59ed85928ec",
+      "type": "KQLDatabase",
+      "displayName": "Fleet_Operations_eh_00000000000040008000f4fa252bba1a"
+    }
+  ],
+  "url": "https://app.fabric.microsoft.com/groups/00000000-0000-4000-8000-000000000002/ontologies/00000000-0000-4000-8000-f4fa252bba1a?ctid=00000000-0000-4000-8000-000000000001"
+}

@@ -1,0 +1,10 @@
+rule CurrentAssignment
+	statement: A current assignment has isCurrent true (SQL bit 1). Do not select all historical assignments or infer a shared route entity.
+	lineageTag: 00000000-0000-4000-8000-f471992a8de1
+
+	ruleReferencedEntity Assignment
+		propertyScope: specific
+
+		ruleReferencedProperty isCurrent
+
+		ruleReferencedProperty vehicle_id

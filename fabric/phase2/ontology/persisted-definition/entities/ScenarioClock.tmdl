@@ -1,0 +1,27 @@
+/// Exactly one synthetic scenario clock. asOf is the only telemetry freshness reference, never wall-clock UTC. Decimal speed is intentionally excluded.
+entity ScenarioClock
+	lineageTag: 00000000-0000-4000-8000-f2d0f039eb80
+	backingTable: SimClocks
+	keyProperty: id
+
+	property id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f1466400e290
+
+		backingConfiguration
+			valueColumn: SimClocks.id
+
+	property scenarioName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f35824036744
+
+		backingConfiguration
+			valueColumn: SimClocks.scenarioName
+
+	property asOf
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-fbaa77d0db1b
+
+		backingConfiguration
+			valueColumn: SimClocks.asOf
+

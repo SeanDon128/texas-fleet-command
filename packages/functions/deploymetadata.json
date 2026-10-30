@@ -1,0 +1,50 @@
+{
+  "runtime": "TypeScript",
+  "functionsMetadata": [
+    {
+      "name": "askFabricDataAgent",
+      "scriptFile": "src\\function_app.ts",
+      "bindings": [
+        {
+          "name": "req",
+          "type": "httpTrigger",
+          "direction": "in",
+          "authLevel": "anonymous",
+          "methods": [
+            "post"
+          ],
+          "route": "askFabricDataAgent"
+        },
+        {
+          "name": "$return",
+          "type": "http",
+          "direction": "out"
+        },
+        {
+          "name": "__generic_Fabric",
+          "direction": "in",
+          "type": "FabricItem",
+          "alias": "",
+          "audienceType": "Fabric"
+        }
+      ],
+      "fabricProperties": {
+        "fabricMetadataSchemaVersion": "1.0",
+        "fabricFunctionReturnType": "Promise<DataAgentResult>",
+        "fabricFunctionParameters": [
+          {
+            "name": "ctx",
+            "dataType": "RayfinContext<UniversalAppSchema, AudienceType.Fabric>",
+            "hasDefaultValue": false
+          },
+          {
+            "name": "question",
+            "dataType": "string",
+            "hasDefaultValue": false
+          }
+        ]
+      },
+      "functionCode": "udf.func(\n  'askFabricDataAgent',\n  async (\n    ctx: RayfinContext<UniversalAppSchema, AudienceType.Fabric>,\n    question: string,\n  ): Promise<DataAgentResult> => {\n    const requestId = randomUUID();\n    const started = Date.now();\n    try {\n      if (typeof question !== 'string' || !question.trim() || question.length > MAX_QUESTION_LENGTH) {\n        throw new AgentError('invalid_question');\n      }\n      let token: string;\n      try { token = ctx.Tokens.Fabric; } catch { throw new AgentError('permission'); }\n      const answer = await askMcp({ endpoint, token, question });\n      const elapsedMs = Date.now() - started;\n      console.info(JSON.stringify({ event: 'fleet-agent-completed', requestId, elapsedMs }));\n      return { kind: 'answer', ...answer, requestId, elapsedMs };\n    } catch (error: unknown) {\n      const code = error instanceof AgentError ? error.code : 'unexpected';\n      const elapsedMs = Date.now() - started;\n      console.warn(JSON.stringify({ event: 'fleet-agent-failed', requestId, code, elapsedMs }));\n      return { kind: 'failure', code, message: messages[code], requestId, elapsedMs,\n        retryable: ['unavailable', 'timeout', 'empty_answer'].includes(code) };\n    }\n  },\n  []\n)"
+    }
+  ]
+}

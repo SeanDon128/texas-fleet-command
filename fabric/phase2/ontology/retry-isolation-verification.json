@@ -1,0 +1,70 @@
+{
+  "verifiedAt": "2026-10-29T20:04:23.579Z",
+  "checkedFrozenFiles": 69,
+  "changed": [],
+  "items": [
+    {
+      "id": "00000000-0000-4000-8000-feffe397ad55",
+      "type": "SemanticModel",
+      "displayName": "Texas Fleet Operations"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000008",
+      "type": "SQLEndpoint",
+      "displayName": "tx_fleet_history"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000007",
+      "type": "SQLEndpoint",
+      "displayName": "tx-fleet-command"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000004",
+      "type": "Lakehouse",
+      "displayName": "tx_fleet_history"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000005",
+      "type": "AppBackend",
+      "displayName": "tx-fleet-command"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000006",
+      "type": "SQLDatabase",
+      "displayName": "tx-fleet-command"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000009",
+      "type": "DataAgent",
+      "displayName": "tx-fleet-operations-agent"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000010",
+      "type": "UserDataFunction",
+      "displayName": "tx-fleet-command"
+    },
+    {
+      "id": "00000000-0000-4000-8000-f4fa252bba1a",
+      "type": "Ontology",
+      "displayName": "Fleet_Operations"
+    },
+    {
+      "id": "00000000-0000-4000-8000-f65519034aa5",
+      "type": "GraphModel",
+      "displayName": "Fleet_Operations_graph_00000000000040008000f4fa252bba1a"
+    },
+    {
+      "id": "00000000-0000-4000-8000-f829ab153164",
+      "type": "Eventhouse",
+      "displayName": "Fleet_Operations_eh_00000000000040008000f4fa252bba1a"
+    },
+    {
+      "id": "00000000-0000-4000-8000-f59ed85928ec",
+      "type": "KQLDatabase",
+      "displayName": "Fleet_Operations_eh_00000000000040008000f4fa252bba1a"
+    }
+  ],
+  "sourceWritesPerformed": false,
+  "existingAgentModified": false,
+  "appRedeployed": false
+}

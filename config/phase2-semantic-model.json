@@ -1,0 +1,16 @@
+{
+  "id": "00000000-0000-4000-8000-feffe397ad55",
+  "displayName": "Texas Fleet Operations",
+  "workspaceId": "00000000-0000-4000-8000-000000000002",
+  "sourceDatabaseId": "00000000-0000-4000-8000-000000000006",
+  "sourceTables": [
+    "Regions",
+    "Vehicles",
+    "Alerts",
+    "Assignments",
+    "FleetEvents",
+    "TelemetryPings",
+    "SimClocks"
+  ],
+  "createdAt": "2026-10-28T21:05:54.002Z"
+}

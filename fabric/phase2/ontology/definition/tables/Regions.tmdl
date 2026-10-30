@@ -1,0 +1,29 @@
+table Regions
+	lineageTag: 00000000-0000-4000-8000-fde5d8780375
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fcbb65ad12d6
+		sourceColumn: id
+
+	column code
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f53535829eb0
+		sourceColumn: code
+
+	column name
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f061b728d7cb
+		sourceColumn: name
+
+	column hubName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f21535ff4315
+		sourceColumn: hubName
+
+	partition Regions = entity
+		mode: directLake
+		source
+			entityName: Regions
+			schemaName: dbo
+			expressionSource: DatabaseQuery

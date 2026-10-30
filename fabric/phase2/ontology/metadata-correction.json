@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-29T20:08:37.485Z",
+  "purpose": "Clarify explicit request versus observed associated resources; no definition update.",
+  "status": 200,
+  "item": {
+    "id": "00000000-0000-4000-8000-f4fa252bba1a",
+    "type": "Ontology",
+    "displayName": "Fleet_Operations",
+    "description": "Synthetic fleet business context over existing SQLDatabase replica bindings and scenario time. No real operational claims. Associated graph resources exist; no graph refresh was explicitly requested.",
+    "workspaceId": "00000000-0000-4000-8000-000000000002",
+    "logicalId": null,
+    "properties": {
+      "generation": 2
+    }
+  }
+}

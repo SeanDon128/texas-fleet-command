@@ -1,0 +1,41 @@
+/// Fictional review-team member. Display name and role are synthetic; email and identity subject fields are excluded.
+entity TeamMember
+	lineageTag: 00000000-0000-4000-8000-f06d902057e4
+	backingTable: TeamMembers
+	keyProperty: id
+
+	property id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4c22d80b47d
+
+		backingConfiguration
+			valueColumn: TeamMembers.id
+
+	property displayName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f587a86e25ab
+
+		backingConfiguration
+			valueColumn: TeamMembers.displayName
+
+	property role
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f029b1a641e1
+
+		backingConfiguration
+			valueColumn: TeamMembers.role
+
+	property region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-face9fe10f9b
+
+		backingConfiguration
+			valueColumn: TeamMembers.region_id
+
+	property isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-fbb8401eb2a0
+
+		backingConfiguration
+			valueColumn: TeamMembers.isSynthetic
+

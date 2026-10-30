@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Bridged tokens — kept in `@theme static` so the CSS vars are always
+   emitted, not tree-shaken when no Tailwind utility consumes them.
+   Required because <VegaVisual> and <DataGrid> read these at runtime via
+   `useCssTheme()` and project them into a JS theme object (Vega's SVG output
+   cannot resolve `var()` references). */
+@theme static {
+  --color-brand: #176465;
+  --color-brand-foreground: #176465;
+  --color-hover: #edf4f1;
+}
+
+@theme {
+  /* Color tokens — light theme
+     Usage: bg-*, text-*, border-* (e.g. bg-primary text-primary-foreground)
+     Each token has a -foreground pair for text on that surface. */
+  --color-background: #f3f5ef;
+  --color-foreground: #18332f;
+
+  --color-card: #ffffff; /* card surfaces */
+  --color-card-foreground: #18332f;
+
+  --color-popover: #ffffff; /* popover/dropdown surfaces */
+  --color-popover-foreground: #18332f;
+
+  --color-primary: #176465;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #e7eeea;
+  --color-secondary-foreground: #18332f;
+
+  --color-muted: #eff3ee;
+  --color-muted-foreground: #52675f;
+
+  --color-accent: #e3f0e9;
+  --color-accent-foreground: #174e42;
+
+  --color-destructive: #ad303a;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #d3ded5;
+  --color-input: #bacbc0;
+  --color-ring: #176465;
+  --color-command: #123f40;
+  --color-command-foreground: #f0f8f2;
+  --color-command-muted: #bad1c5;
+  --color-moving: #16725e;
+  --color-stopped: #176fac;
+  --color-idle: #6a7370;
+  --color-maintenance: #8759a6;
+  --color-offline: #a63e47;
+  --color-warning: #85520b;
+  --color-warning-surface: #fff3da;
+  --color-warning-border: #dec082;
+  --color-map: #e4ede3;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 16px;
+  --radius-4xl: 24px;
+  --radius-5xl: 32px;
+  --radius-6xl: 40px;
+  --radius-full: 9999px;
+  --radius: 8px;
+  --height-map: 560px;
+  --height-map-mobile: 420px;
+  --height-roster: 480px;
+  --width-control: 175px;
+  --width-roster: 290px;
+  --width-details: 300px;
+
+  /* Spacing — 4px grid; use only these tokens, no interpolation. *-nudge = base − 2px.
+     Usage: p-*, m-*, gap-* (e.g. p-400 gap-300) */
+  --spacing-none: 0;
+  --spacing-100-nudge: 2px;
+  --spacing-100: 4px;
+  --spacing-200-nudge: 6px;
+  --spacing-200: 8px;
+  --spacing-300-nudge: 10px;
+  --spacing-300: 12px;
+  --spacing-400: 16px;
+  --spacing-500: 20px;
+  --spacing-600: 24px;
+  --spacing-700: 28px;
+  --spacing-800: 32px;
+
+  /* Font Sizes — 100-based scale 
+     Usage: text-* (e.g. text-300, text-hero-900) */
+  --text-100: 10px;
+  --text-200: 12px;
+  --text-300: 14px;
+  --text-400: 16px;
+  --text-500: 20px;
+  --text-600: 24px;
+  --text-hero-700: 28px;
+  --text-hero-800: 32px;
+  --text-hero-900: 40px;
+  --text-hero-1000: 68px;
+
+  /* Line Heights — paired with font sizes
+     Usage: leading-* (e.g. leading-300) */
+  --leading-100: 14px;
+  --leading-200: 16px;
+  --leading-300: 20px;
+  --leading-400: 22px;
+  --leading-500: 28px;
+  --leading-600: 32px;
+  --leading-hero-700: 36px;
+  --leading-hero-800: 40px;
+  --leading-hero-900: 52px;
+  --leading-hero-1000: 92px;
+
+  /* Font Weights
+     Usage: font-* (e.g. font-semibold) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Families
+     Usage: font-* (e.g. font-heading, font-base) */
+  --font-heading:
+    'IBM Plex Sans Condensed', Bahnschrift, sans-serif;
+  --font-base:
+    'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-monospace:
+    Consolas, 'Courier New', Courier, monospace; /* code, pre-formatted text */
+  --font-numeric:
+    Bahnschrift, 'Segoe UI',
+    /* KPI values, numeric displays */ 'Segoe UI Web (West European)',
+    -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+
+  /* Icon Sizes — 100-based scale
+     Usage: icon-size-* custom utility (e.g. icon-size-200) */
+  --icon-size-100: 12px;
+  --icon-size-200: 16px;
+  --icon-size-300: 20px;
+  --icon-size-400: 24px;
+  --icon-size-500: 28px;
+  --icon-size-600: 32px;
+  --icon-size-700: 48px;
+}
+
+@utility icon-size-* {
+  width: --value(--icon-size-*);
+  height: --value(--icon-size-*);
+}
+
+@layer base {
+  .dark {
+    /* Color tokens — dark theme */
+    --color-background: #102323;
+    --color-foreground: #e3eee6;
+
+    --color-card: #193030;
+    --color-card-foreground: #e3eee6;
+
+    --color-popover: #193030;
+    --color-popover-foreground: #e3eee6;
+
+    --color-primary: #91d6bb;
+    --color-primary-foreground: #102e28;
+
+    --color-secondary: #243f3c;
+    --color-secondary-foreground: #e3eee6;
+
+    --color-muted: #142929;
+    --color-muted-foreground: #afc7bc;
+
+    --color-accent: #2b5049;
+    --color-accent-foreground: #b7ead2;
+
+    --color-destructive: #ff9a9f;
+    --color-destructive-foreground: #381019;
+
+    --color-border: #38564d;
+    --color-input: #6c8c7e;
+    --color-ring: #91d6bb;
+
+    --color-brand: #91d6bb;
+    --color-brand-foreground: #91d6bb;
+    --color-hover: #2b5049;
+    --color-moving: #8ad1a9;
+    --color-stopped: #82c6ed;
+    --color-idle: #bfcdc5;
+    --color-maintenance: #d2abeb;
+    --color-offline: #ff9a9f;
+    --color-warning: #f2ce89;
+    --color-warning-surface: #3c3323;
+    --color-warning-border: #8d7443;
+    --color-map: #163332;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-base antialiased;
+  }
+
+  button, input, select, textarea {
+    font: inherit;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@utility h-fleet-map {
+  height: var(--height-map-mobile);
+  @media (min-width: 1024px) { height: var(--height-map); }
+}
+
+.leaflet-container {
+  background: var(--color-map);
+  font-family: var(--font-base);
+  isolation: isolate;
+}
+.fleet-marker {
+  --marker-color: var(--color-moving);
+  color: var(--marker-color);
+  background: transparent;
+  border: none;
+}
+.fleet-marker.at_stop { --marker-color: var(--color-stopped); }
+.fleet-marker.idle { --marker-color: var(--color-idle); }
+.fleet-marker.maintenance { --marker-color: var(--color-maintenance); }
+.fleet-marker.offline { --marker-color: var(--color-offline); }
+.fleet-marker svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 2px #18332f66);
+}
+.fleet-marker.selected {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-full);
+}
+.fleet-city {
+  color: var(--color-command);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-200);
+  white-space: nowrap;
+  text-shadow: 0 1px 2px #fff, 0 -1px 2px #fff;
+  pointer-events: none;
+}
+.leaflet-tooltip {
+  color: var(--color-popover-foreground);
+  background: var(--color-popover);
+  border-color: var(--color-border);
+  font-family: var(--font-base);
+}
+.leaflet-control-attribution {
+  font-size: var(--text-200) !important;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}

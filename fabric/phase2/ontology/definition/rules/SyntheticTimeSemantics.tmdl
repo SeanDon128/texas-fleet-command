@@ -1,0 +1,22 @@
+rule SyntheticTimeSemantics
+	statement: All data is synthetic Zava Security (a fictional company) demo data and supports no claims about any real company or operation. Scenario-clock telemetry time is separate from actual UTC operator action timestamps, which can be later. Alert status reflects current record state, not a historical as-of snapshot.
+	lineageTag: 00000000-0000-4000-8000-f6c80a3a7a1e
+
+	ruleReferencedEntity ScenarioClock
+		propertyScope: specific
+
+		ruleReferencedProperty asOf
+
+	ruleReferencedEntity Alert
+		propertyScope: specific
+
+		ruleReferencedProperty status
+
+		ruleReferencedProperty createdAt
+
+		ruleReferencedProperty resolvedAt
+
+	ruleReferencedEntity FleetEvent
+		propertyScope: specific
+
+		ruleReferencedProperty occurredAt

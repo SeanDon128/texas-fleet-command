@@ -1,0 +1,34 @@
+table TeamMembers
+	lineageTag: 00000000-0000-4000-8000-f126d1ce6d6e
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4ceff3d25c1
+		sourceColumn: id
+
+	column displayName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fbe40c68de29
+		sourceColumn: displayName
+
+	column role
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fa551f9a8490
+		sourceColumn: role
+
+	column region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f06fea83e534
+		sourceColumn: region_id
+
+	column isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-f7f28e9bb93c
+		sourceColumn: isSynthetic
+
+	partition TeamMembers = entity
+		mode: directLake
+		source
+			entityName: TeamMembers
+			schemaName: dbo
+			expressionSource: DatabaseQuery

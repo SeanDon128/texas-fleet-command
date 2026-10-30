@@ -1,0 +1,74 @@
+{
+  "measuredAt": "2026-10-30T08:08:24.821Z",
+  "O1": [
+    {
+      "vehicleCode": "SYN-026",
+      "vehicleRegion": "DFW",
+      "alertId": "00000000-0000-4000-8000-fa056eb2f1a8",
+      "status": "open",
+      "severity": "critical",
+      "reviewer": "Synthetic DFW Coordinator",
+      "reviewerRegion": "DFW"
+    },
+    {
+      "vehicleCode": "SYN-027",
+      "vehicleRegion": "HOU",
+      "alertId": "00000000-0000-4000-8000-f77e8e173e0b",
+      "status": "open",
+      "severity": "critical",
+      "reviewer": "Synthetic HOU Operator",
+      "reviewerRegion": "HOU"
+    },
+    {
+      "vehicleCode": "SYN-028",
+      "vehicleRegion": "HOU",
+      "alertId": "00000000-0000-4000-8000-ff85a8841a07",
+      "status": "open",
+      "severity": "critical",
+      "reviewer": "Synthetic HOU Operator",
+      "reviewerRegion": "HOU"
+    },
+    {
+      "vehicleCode": "SYN-029",
+      "vehicleRegion": "HOU",
+      "alertId": "00000000-0000-4000-8000-ff8bb0b699af",
+      "status": "open",
+      "severity": "critical",
+      "reviewer": "Synthetic HOU Operator",
+      "reviewerRegion": "HOU"
+    },
+    {
+      "vehicleCode": "SYN-090",
+      "vehicleRegion": "ELP",
+      "alertId": "00000000-0000-4000-8000-f21baa845c35",
+      "status": "open",
+      "severity": "critical",
+      "reviewer": "Synthetic ELP Operator",
+      "reviewerRegion": "ELP"
+    }
+  ],
+  "O2": [
+    {
+      "vehicleCode": "SYN-027",
+      "vehicleRegion": "HOU",
+      "destinationName": "Synthetic Stop HOU-001",
+      "assignmentDelay": 38,
+      "alertId": "00000000-0000-4000-8000-fec7496ddfa4",
+      "status": "open",
+      "severity": "warning",
+      "reviewer": "Synthetic HOU Operator",
+      "reviewerRegion": "HOU"
+    },
+    {
+      "vehicleCode": "SYN-027",
+      "vehicleRegion": "HOU",
+      "destinationName": "Synthetic Stop HOU-001",
+      "assignmentDelay": 38,
+      "alertId": "00000000-0000-4000-8000-f77e8e173e0b",
+      "status": "open",
+      "severity": "critical",
+      "reviewer": "Synthetic HOU Operator",
+      "reviewerRegion": "HOU"
+    }
+  ]
+}

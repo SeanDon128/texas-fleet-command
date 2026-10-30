@@ -1,0 +1,110 @@
+{
+  "measuredAt": "2026-10-30T07:24:26.463Z",
+  "Q1": {
+    "attention": 54,
+    "total": 120,
+    "rate": 0.45
+  },
+  "Q2": [
+    {
+      "region": "HOU",
+      "vehicles": 28,
+      "attention": 17,
+      "rate": 0.6071428571428571
+    },
+    {
+      "region": "DFW",
+      "vehicles": 26,
+      "attention": 11,
+      "rate": 0.4230769230769231
+    },
+    {
+      "region": "SAT",
+      "vehicles": 14,
+      "attention": 6,
+      "rate": 0.42857142857142855
+    },
+    {
+      "region": "AUS",
+      "vehicles": 14,
+      "attention": 5,
+      "rate": 0.35714285714285715
+    },
+    {
+      "region": "CRP",
+      "vehicles": 10,
+      "attention": 5,
+      "rate": 0.5
+    },
+    {
+      "region": "ELP",
+      "vehicles": 8,
+      "attention": 4,
+      "rate": 0.5
+    },
+    {
+      "region": "LBB",
+      "vehicles": 10,
+      "attention": 4,
+      "rate": 0.4
+    },
+    {
+      "region": "AMA",
+      "vehicles": 10,
+      "attention": 2,
+      "rate": 0.2
+    }
+  ],
+  "Q3": {
+    "codes": [
+      "SYN-026",
+      "SYN-027",
+      "SYN-028",
+      "SYN-029",
+      "SYN-090"
+    ],
+    "vehicles": {
+      "v": 5,
+      "a": 5
+    }
+  },
+  "Q4": {
+    "active": 102,
+    "health": 24,
+    "delayed": 16,
+    "alerts": 27,
+    "alertVehicles": 21,
+    "stale": 10,
+    "outOfService": 18,
+    "total": 120
+  },
+  "Q5": [
+    "SYN-025",
+    "SYN-026",
+    "SYN-051",
+    "SYN-052",
+    "SYN-053",
+    "SYN-054",
+    "SYN-082",
+    "SYN-090",
+    "SYN-100",
+    "SYN-110"
+  ],
+  "Q6": {
+    "delay": 38,
+    "alerts": 2,
+    "critical": 1,
+    "stale": 0
+  },
+  "Q7": {
+    "health": 24,
+    "alertVehicles": 21,
+    "outOfService": 18,
+    "delayed": 16,
+    "stale": 10,
+    "union": 54
+  },
+  "Q8": {
+    "events": 60
+  }
+}

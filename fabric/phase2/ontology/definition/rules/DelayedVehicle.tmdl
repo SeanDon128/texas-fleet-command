@@ -1,0 +1,10 @@
+rule DelayedVehicle
+	statement: A delayed vehicle has delayStatus exactly delayed. Do not include at_risk or infer delay from wall-clock time.
+	lineageTag: 00000000-0000-4000-8000-f9b9e04c3a71
+
+	ruleReferencedEntity Vehicle
+		propertyScope: specific
+
+		ruleReferencedProperty delayStatus
+
+		ruleReferencedProperty delayMinutes

@@ -1,0 +1,49 @@
+table FleetEvents
+	lineageTag: 00000000-0000-4000-8000-f7f9f38bb444
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f49044157cdd
+		sourceColumn: id
+
+	column vehicle_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fcf91ddf2e19
+		sourceColumn: vehicle_id
+
+	column region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fe2766759dfb
+		sourceColumn: region_id
+
+	column alert_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-ff48891942b6
+		sourceColumn: alert_id
+
+	column type
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fdf5e999b0e7
+		sourceColumn: type
+
+	column occurredAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-fb5e48e0b5a1
+		sourceColumn: occurredAt
+
+	column detail
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f49e5cda7b94
+		sourceColumn: detail
+
+	column isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-fffcfc0e5780
+		sourceColumn: isSynthetic
+
+	partition FleetEvents = entity
+		mode: directLake
+		source
+			entityName: FleetEvents
+			schemaName: dbo
+			expressionSource: DatabaseQuery

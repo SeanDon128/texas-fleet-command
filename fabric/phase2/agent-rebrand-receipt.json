@@ -1,0 +1,12 @@
+{
+  "appliedAt": "2026-10-30T06:27:14.439Z",
+  "agent": "tx-fleet-operations-agent",
+  "changedParts": [
+    "Files/Config/draft/stage_config.json",
+    "Files/Config/draft/lakehouse-tables-tx_fleet_history/datasource.json",
+    "Files/Config/publish_info.json",
+    "Files/Config/published/stage_config.json",
+    "Files/Config/published/lakehouse-tables-tx_fleet_history/datasource.json"
+  ],
+  "note": "Only instruction/description sentences changed; draft and published stages updated together; rollback copy kept outside the repository."
+}

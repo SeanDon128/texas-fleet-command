@@ -1,0 +1,24 @@
+table SimClocks
+	lineageTag: 00000000-0000-4000-8000-f0e0e3727590
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fc5272c56d9f
+		sourceColumn: id
+
+	column scenarioName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fe355f8185c3
+		sourceColumn: scenarioName
+
+	column asOf
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f48af7aa0302
+		sourceColumn: asOf
+
+	partition SimClocks = entity
+		mode: directLake
+		source
+			entityName: SimClocks
+			schemaName: dbo
+			expressionSource: DatabaseQuery

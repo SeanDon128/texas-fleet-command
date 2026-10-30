@@ -1,0 +1,158 @@
+{
+  "id": "E-TEMPLATE",
+  "feedbackId": "FB-036",
+  "startedAt": "2026-10-30T08:24:46.550Z",
+  "cliVersion": "1.36.2",
+  "nodeVersion": "v26.13.0",
+  "declaredNodeEngines": ">=20.0.0 <21.0.0 || >=22.0.0 <23.0.0 || >=24.0.0 <25.0.0",
+  "limits": [
+    "Node 26 is outside the CLI declared Node 20/22/24 ranges; both local scaffolds succeeded, but supported-runtime portability was not tested.",
+    "No dependency installation, generated-app build, sign-in or deployment was tested; output is not claimed to be a working second app.",
+    "Business parameterization conclusions apply to the installed 1.36.2 local-template CLI path and inspected documentation."
+  ],
+  "hypothesis": "Local template scaffolding renames project identity, but business customization is limited to the documented project-name placeholders.",
+  "expected": "Root package and Rayfin identity renamed; README and filename project-name tokens replaced; custom organization/map tokens and ordinary source contents unchanged.",
+  "safeguards": [
+    "Local directories only",
+    "Telemetry opted out",
+    "No install",
+    "No workspace/item flags",
+    "No overwrite",
+    "No deployment"
+  ],
+  "runs": [
+    {
+      "name": "Current project as-is",
+      "execution": {
+        "seconds": 4.179,
+        "exitCode": 0,
+        "syncSuccessReported": true,
+        "dependencyInstallRequested": false,
+        "command": "node <installed-rayfin-cli> --yes init <scratch-output> --template <local-source> --project-name \"Reusable Field Operations\" --skip-install"
+      },
+      "packageName": "reusable-field-operations",
+      "dependencyDeclarationsPreserved": true,
+      "rayfinIdentity": {
+        "id": "reusable-field-operations",
+        "name": "Reusable Field Operations"
+      },
+      "protectedAssetsPreserved": true,
+      "authPreserved": true,
+      "originalHostedRedirectRetained": true,
+      "copiedFiles": {
+        "README.md": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "package-lock.json": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "config\\fabric-target.json": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "packages\\frontend\\src\\App.tsx": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "packages\\functions\\src\\function_app.ts": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "rayfin\\.deployments.json": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "rayfin\\.env": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        ".env.local": {
+          "sourcePresent": false,
+          "outputPresent": false,
+          "identical": null
+        },
+        "packages\\functions\\local.settings.json": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        },
+        "PROJECT_PLAN.md": {
+          "sourcePresent": true,
+          "outputPresent": true,
+          "identical": true
+        }
+      },
+      "directories": {
+        ".git": {
+          "sourcePresent": true,
+          "outputPresent": false
+        },
+        "node_modules": {
+          "sourcePresent": true,
+          "outputPresent": false
+        },
+        "data\\generated": {
+          "sourcePresent": true,
+          "outputPresent": true
+        },
+        "packages\\frontend\\dist": {
+          "sourcePresent": true,
+          "outputPresent": true
+        },
+        "docs\\evidence": {
+          "sourcePresent": true,
+          "outputPresent": true
+        },
+        "fabric": {
+          "sourcePresent": true,
+          "outputPresent": true
+        }
+      },
+      "agentFilesInstalled": true
+    },
+    {
+      "name": "Controlled placeholder and copy-filter probe",
+      "execution": {
+        "seconds": 2.836,
+        "exitCode": 0,
+        "syncSuccessReported": true,
+        "dependencyInstallRequested": false,
+        "command": "node <installed-rayfin-cli> --yes init <scratch-output> --template <local-source> --project-name \"Reusable Field Operations\" --skip-install"
+      },
+      "rootReadme": [
+        "Reusable Field Operations",
+        "reusable-field-operations",
+        "ReusableFieldOperations",
+        "{{ORGANIZATION_NAME}}",
+        "{{MAP_CENTER}}"
+      ],
+      "projectFilenameRendered": true,
+      "projectTokenInsideTypeScriptUnchanged": true,
+      "customFilenameTokenUnchanged": true,
+      "nestedReadmeUnchanged": true,
+      "nestedPackageName": "source-child",
+      "gitignoredFileCopied": true,
+      "syntheticEnvFileCopied": true,
+      "buildOutputCopied": true,
+      "gitMetadataSkipped": true,
+      "dependencyDirectorySkipped": true,
+      "templateManifestSkipped": true
+    }
+  ],
+  "result": "CONFIRMED for the installed local-template CLI path: project-identity scaffolding works; custom business tokens remain unresolved; .gitignore is not a template export filter.",
+  "isolation": {
+    "frozenFileCount": 88,
+    "changedFiles": []
+  },
+  "scratchRemoved": true,
+  "completedAt": "2026-10-30T08:24:53.941Z"
+}

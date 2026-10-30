@@ -1,0 +1,62 @@
+/// Vehicle operates in a region; many vehicles to one region.
+entityRelationship operatesIn
+	lineageTag: 00000000-0000-4000-8000-fe5d0296bcad
+	fromEntity: Vehicle
+	toEntity: Region
+
+	backingConfiguration
+		relationship: operatesIn
+
+/// Many assignments, including noncurrent records, refer to one vehicle.
+entityRelationship assignedToVehicle
+	lineageTag: 00000000-0000-4000-8000-f6b4b26cb49b
+	fromEntity: Assignment
+	toEntity: Vehicle
+
+	backingConfiguration
+		relationship: assignedToVehicle
+
+/// Many alerts refer to one vehicle.
+entityRelationship affectsVehicle
+	lineageTag: 00000000-0000-4000-8000-f70edff371b1
+	fromEntity: Alert
+	toEntity: Vehicle
+
+	backingConfiguration
+		relationship: affectsVehicle
+
+/// Many historical events refer to one vehicle.
+entityRelationship observedOnVehicle
+	lineageTag: 00000000-0000-4000-8000-f166576fedb9
+	fromEntity: FleetEvent
+	toEntity: Vehicle
+
+	backingConfiguration
+		relationship: observedOnVehicle
+
+/// Optional event-to-alert reference; null alert_id means no relationship instance.
+entityRelationship concernsAlert
+	lineageTag: 00000000-0000-4000-8000-f0bb49d6e12a
+	fromEntity: FleetEvent
+	toEntity: Alert
+
+	backingConfiguration
+		relationship: concernsAlert
+
+/// Optional review responsibility; no notification is implied.
+entityRelationship assignedForReview
+	lineageTag: 00000000-0000-4000-8000-fb2582935d98
+	fromEntity: Alert
+	toEntity: TeamMember
+
+	backingConfiguration
+		relationship: assignedForReview
+
+/// Fictional team member is based in one region.
+entityRelationship teamBasedIn
+	lineageTag: 00000000-0000-4000-8000-fe6fb216498b
+	fromEntity: TeamMember
+	toEntity: Region
+
+	backingConfiguration
+		relationship: teamBasedIn

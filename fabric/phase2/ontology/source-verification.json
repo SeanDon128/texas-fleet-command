@@ -1,0 +1,201 @@
+{
+  "verifiedAt": "2026-10-29T19:58:27.222Z",
+  "verificationScope": "Direct read-only SQL replica source; not an ontology query",
+  "server": "<sql-analytics-endpoint>",
+  "database": "00000000-0000-4000-8000-000000000007",
+  "counts": [
+    {
+      "Vehicle": "120",
+      "Region": "8",
+      "Alert": "40",
+      "Assignment": "150",
+      "FleetEvent": "322",
+      "ScenarioClock": "1",
+      "TeamMember": "14"
+    }
+  ],
+  "sample": [
+    {
+      "vehicleCode": "SYN-027",
+      "callSign": "Unit 027",
+      "status": "en_route",
+      "healthStatus": "ok",
+      "delayStatus": "delayed",
+      "delayMinutes": 38,
+      "lastTelemetryAt": "2026-10-27T14:54:00.000Z",
+      "regionCode": "HOU",
+      "asOf": "2026-10-27T15:00:00.000Z",
+      "activeAlerts": 2,
+      "stale": 0
+    }
+  ],
+  "baseline": [
+    {
+      "vehicles": 120,
+      "stale": 10,
+      "delayed": 16,
+      "needsAttention": 54
+    }
+  ],
+  "regions": [
+    {
+      "code": "AMA",
+      "vehicles": 10,
+      "delayed": 0,
+      "needsAttention": 2,
+      "activeAlerts": 1
+    },
+    {
+      "code": "AUS",
+      "vehicles": 14,
+      "delayed": 1,
+      "needsAttention": 5,
+      "activeAlerts": 1
+    },
+    {
+      "code": "CRP",
+      "vehicles": 10,
+      "delayed": 1,
+      "needsAttention": 5,
+      "activeAlerts": 2
+    },
+    {
+      "code": "DFW",
+      "vehicles": 26,
+      "delayed": 3,
+      "needsAttention": 11,
+      "activeAlerts": 6
+    },
+    {
+      "code": "ELP",
+      "vehicles": 8,
+      "delayed": 0,
+      "needsAttention": 4,
+      "activeAlerts": 2
+    },
+    {
+      "code": "HOU",
+      "vehicles": 28,
+      "delayed": 9,
+      "needsAttention": 17,
+      "activeAlerts": 11
+    },
+    {
+      "code": "LBB",
+      "vehicles": 10,
+      "delayed": 0,
+      "needsAttention": 4,
+      "activeAlerts": 1
+    },
+    {
+      "code": "SAT",
+      "vehicles": 14,
+      "delayed": 2,
+      "needsAttention": 6,
+      "activeAlerts": 3
+    }
+  ],
+  "activeAlerts": [
+    {
+      "activeAlerts": 27,
+      "affectedVehicles": 21,
+      "criticalAlerts": 5
+    }
+  ],
+  "criticalVehicles": [
+    {
+      "vehicleCode": "SYN-026"
+    },
+    {
+      "vehicleCode": "SYN-027"
+    },
+    {
+      "vehicleCode": "SYN-028"
+    },
+    {
+      "vehicleCode": "SYN-029"
+    },
+    {
+      "vehicleCode": "SYN-090"
+    }
+  ],
+  "keyChecks": [
+    {
+      "entity": "Vehicle",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    },
+    {
+      "entity": "Region",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    },
+    {
+      "entity": "Alert",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    },
+    {
+      "entity": "Assignment",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    },
+    {
+      "entity": "FleetEvent",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    },
+    {
+      "entity": "ScenarioClock",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    },
+    {
+      "entity": "TeamMember",
+      "duplicateKeys": "0",
+      "nullKeys": "0"
+    }
+  ],
+  "relationshipChecks": [
+    {
+      "relationship": "operatesIn",
+      "orphans": "0"
+    },
+    {
+      "relationship": "assignedToVehicle",
+      "orphans": "0"
+    },
+    {
+      "relationship": "affectsVehicle",
+      "orphans": "0"
+    },
+    {
+      "relationship": "observedOnVehicle",
+      "orphans": "0"
+    },
+    {
+      "relationship": "concernsAlert",
+      "orphans": "0"
+    },
+    {
+      "relationship": "assignedForReview",
+      "orphans": "0"
+    },
+    {
+      "relationship": "teamBasedIn",
+      "orphans": "0"
+    }
+  ],
+  "clock": [
+    {
+      "scenarioName": "Synthetic Texas Fleet",
+      "asOf": "2026-10-27T15:00:00.000Z"
+    }
+  ],
+  "currentAssignments": [
+    {
+      "currentAssignments": 120,
+      "currentVehicles": 120
+    }
+  ]
+}

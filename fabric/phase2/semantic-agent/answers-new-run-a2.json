@@ -1,0 +1,32 @@
+{
+  "agent": "new",
+  "agentId": "00000000-0000-4000-8000-f2830af2ed2e",
+  "tag": "run-a2",
+  "recordedAt": "2026-10-30T07:42:03.403Z",
+  "results": [
+    {
+      "id": "Q1",
+      "question": "How many trucks currently need attention, and what share of the fleet is that?",
+      "askedAt": "2026-10-30T07:40:25.497Z",
+      "elapsedMs": 37102,
+      "truncated": false,
+      "answer": "There are 41 trucks that currently need attention, representing about **40.2% of the active fleet**."
+    },
+    {
+      "id": "Q2",
+      "question": "Which Texas region has the most issues, by count and by percentage?",
+      "askedAt": "2026-10-30T07:41:02.600Z",
+      "elapsedMs": 30846,
+      "truncated": false,
+      "answer": "The synthetic **HOU (Houston) region** has the most issues:\n\n- **By count:** 11 issues (highest of all regions)\n- **By percentage:** ~40.7% of all issues (also the highest share)\n\nSo HOU is the top region both in absolute issue count and in percentage of total issues in this synthetic Texas fleet dataset."
+    },
+    {
+      "id": "Q7",
+      "question": "What are the most common reasons vehicles need attention?",
+      "askedAt": "2026-10-30T07:41:33.446Z",
+      "elapsedMs": 29957,
+      "truncated": false,
+      "answer": "Based on the fleet data in the Texas model, the most common reasons vehicles need attention are:\n\n1. **Health attention (watch/service needed)** – 24 vehicles  \n2. **Active alerts** – 21 vehicles  \n3. **Out of service (offline or in maintenance)** – 18 vehicles  \n4. **Delayed** – 16 vehicles  \n5. **Not reporting / stale telemetry** – 10 vehicles  \n6. **Critical alerts** – 5 vehicles  \n\nThese categories combine health status, alerts, and operational issues to show where the fleet most often requires follow‑up."
+    }
+  ]
+}

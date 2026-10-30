@@ -1,0 +1,15 @@
+{
+  "validatedAt": "2026-10-28T21:31:32.845Z",
+  "scope": "Local structural checks and source-schema/count evidence, not service TMDL compilation",
+  "partCount": 27,
+  "entityCount": 7,
+  "relationshipCount": 7,
+  "ruleCount": 6,
+  "definitionSha256": "ccb2b4e6fd20ae34de9b52d5d9ceae2cec922094d6694752ae88919e7baa03cf",
+  "sourceCountsVerified": true,
+  "sourceKeysAndRelationshipsVerified": true,
+  "exactPropertyMappingsChecked": true,
+  "excludedFieldsChecked": true,
+  "serverSyntaxValidated": false,
+  "persistedOntology": false
+}

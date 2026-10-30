@@ -1,0 +1,14 @@
+{
+  "createdAt": "2026-10-29T20:00:23.078Z",
+  "item": {
+    "id": "00000000-0000-4000-8000-f4fa252bba1a",
+    "type": "Ontology",
+    "displayName": "Fleet_Operations",
+    "description": "Synthetic Texas fleet business context, direct SQLDatabase replica bindings, explicit scenario-clock semantics. No real operational claims. No graph materialization.",
+    "workspaceId": "00000000-0000-4000-8000-000000000002"
+  },
+  "completion": {
+    "operationId": "00000000-0000-4000-8000-f9efb2f11a5c",
+    "status": "Succeeded"
+  }
+}

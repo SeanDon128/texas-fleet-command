@@ -1,0 +1,8 @@
+{
+  "appliedAt": "2026-10-30T06:33:42.439Z",
+  "changedParts": [
+    "rules/SyntheticTimeSemantics.tmdl"
+  ],
+  "itemDescriptionStatus": 200,
+  "note": "Only the wording of one business rule and the item description changed; all other persisted parts were resubmitted unchanged."
+}

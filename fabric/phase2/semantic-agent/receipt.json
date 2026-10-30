@@ -1,0 +1,15 @@
+{
+  "createdAt": "2026-10-30T07:25:43.266Z",
+  "item": {
+    "id": "00000000-0000-4000-8000-f2830af2ed2e",
+    "type": "DataAgent",
+    "displayName": "tx-fleet-semantic-agent",
+    "description": "Zava Security (fictional) read-only Q&A grounded on the Texas Fleet Operations semantic model. Synthetic demo data.",
+    "workspaceId": "00000000-0000-4000-8000-000000000002"
+  },
+  "counts": {
+    "tables": 7,
+    "columns": 42,
+    "measures": 17
+  }
+}

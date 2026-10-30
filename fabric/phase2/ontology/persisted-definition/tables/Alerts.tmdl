@@ -1,0 +1,70 @@
+table Alerts
+	lineageTag: 00000000-0000-4000-8000-f58c3072f17a
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f5d3fd3704e5
+		sourceColumn: id
+
+	column vehicle_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f2b8f157b134
+		sourceColumn: vehicle_id
+
+	column region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f24687f626a6
+		sourceColumn: region_id
+
+	column assignedTo_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f7fdd41e3cf4
+		sourceColumn: assignedTo_id
+
+	column status
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f2638a8ccb27
+		sourceColumn: status
+
+	column severity
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-ff07c303de0e
+		sourceColumn: severity
+
+	column type
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-ffb7b6331398
+		sourceColumn: type
+
+	column message
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fb0cb5bd160b
+		sourceColumn: message
+
+	column createdAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f5904da1f6b7
+		sourceColumn: createdAt
+
+	column resolvedAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f59c5bda4ea7
+		sourceColumn: resolvedAt
+
+	column source
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f78a2b905ccf
+		sourceColumn: source
+
+	column isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-f24d2f66c4ee
+		sourceColumn: isSynthetic
+
+	partition Alerts = entity
+		mode: directLake
+		source
+			entityName: Alerts
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

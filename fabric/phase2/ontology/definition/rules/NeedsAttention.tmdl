@@ -1,0 +1,30 @@
+rule NeedsAttention
+	statement: A vehicle needs attention when it has at least one active alert OR delayStatus is delayed OR telemetry is stale under StaleTelemetry OR healthStatus is not ok OR status is offline or maintenance. Count the distinct uncapped union, not the sum of flags. Multiple alerts must not duplicate vehicles.
+	lineageTag: 00000000-0000-4000-8000-f44e68073477
+
+	ruleReferencedEntity Vehicle
+		propertyScope: specific
+
+		ruleReferencedProperty id
+
+		ruleReferencedProperty status
+
+		ruleReferencedProperty delayStatus
+
+		ruleReferencedProperty healthStatus
+
+		ruleReferencedProperty lastTelemetryAt
+
+	ruleReferencedEntity Alert
+		propertyScope: specific
+
+		ruleReferencedProperty vehicle_id
+
+		ruleReferencedProperty status
+
+	ruleReferencedEntity ScenarioClock
+		propertyScope: specific
+
+		ruleReferencedProperty asOf
+
+	ruleReferencedRelationship affectsVehicle

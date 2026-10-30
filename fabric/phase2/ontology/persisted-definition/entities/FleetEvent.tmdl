@@ -1,0 +1,62 @@
+/// Synthetic event history. Operator actions use actual UTC and can occur after ScenarioClock.asOf. Actor identity is intentionally excluded.
+entity FleetEvent
+	lineageTag: 00000000-0000-4000-8000-f45d5e7ec5f3
+	backingTable: FleetEvents
+	keyProperty: id
+
+	property id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f39606b5cb3e
+
+		backingConfiguration
+			valueColumn: FleetEvents.id
+
+	property vehicle_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f7227e4cfdf8
+
+		backingConfiguration
+			valueColumn: FleetEvents.vehicle_id
+
+	property region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f18fac0ba1f2
+
+		backingConfiguration
+			valueColumn: FleetEvents.region_id
+
+	property alert_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fdb9050ae833
+
+		backingConfiguration
+			valueColumn: FleetEvents.alert_id
+
+	property type
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f8ede03fe97c
+
+		backingConfiguration
+			valueColumn: FleetEvents.type
+
+	property occurredAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f54d22836672
+
+		backingConfiguration
+			valueColumn: FleetEvents.occurredAt
+
+	property detail
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4b6553fcc81
+
+		backingConfiguration
+			valueColumn: FleetEvents.detail
+
+	property isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-f2edbd7594d0
+
+		backingConfiguration
+			valueColumn: FleetEvents.isSynthetic
+

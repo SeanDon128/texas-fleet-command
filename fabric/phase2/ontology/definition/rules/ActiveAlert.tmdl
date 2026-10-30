@@ -1,0 +1,8 @@
+rule ActiveAlert
+	statement: An active alert has current record status open or acknowledged. This is current state, not an as-of historical snapshot.
+	lineageTag: 00000000-0000-4000-8000-f09f869c0f0e
+
+	ruleReferencedEntity Alert
+		propertyScope: specific
+
+		ruleReferencedProperty status

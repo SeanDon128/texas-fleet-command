@@ -1,0 +1,60 @@
+{
+  "evaluatedAt": "2026-10-30T07:47:28.686Z",
+  "note": "Programmatic key-fact check against fresh DAX; manual review of each answer is recorded separately.",
+  "rows": [
+    {
+      "id": "Q1",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "17.5"
+    },
+    {
+      "id": "Q2",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "20.9"
+    },
+    {
+      "id": "Q3",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "23.0",
+      "codes": 5
+    },
+    {
+      "id": "Q4",
+      "status": "FAIL",
+      "missing": [
+        "active"
+      ],
+      "seconds": "30.4"
+    },
+    {
+      "id": "Q5",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "25.5",
+      "codes": 10
+    },
+    {
+      "id": "Q6",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "57.0"
+    },
+    {
+      "id": "Q7",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "33.3"
+    },
+    {
+      "id": "Q8",
+      "status": "FAIL",
+      "missing": [
+        "event count"
+      ],
+      "seconds": "22.6"
+    }
+  ]
+}

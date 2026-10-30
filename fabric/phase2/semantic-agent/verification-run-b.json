@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-10-30T07:49:33.434Z",
+  "agentId": "00000000-0000-4000-8000-f2830af2ed2e",
+  "paths": [
+    "Files/Config/data_agent.json",
+    "Files/Config/draft/stage_config.json",
+    "Files/Config/draft/semantic-model-Texas Fleet Operations/datasource.json",
+    "Files/Config/publish_info.json",
+    "Files/Config/published/stage_config.json",
+    "Files/Config/published/semantic-model-Texas Fleet Operations/datasource.json",
+    ".platform"
+  ],
+  "sources": [
+    {
+      "path": "Files/Config/draft/semantic-model-Texas Fleet Operations/datasource.json",
+      "type": "semantic_model",
+      "artifactMatchesModel": true,
+      "tables": 7,
+      "columns": 42,
+      "measures": 17
+    },
+    {
+      "path": "Files/Config/published/semantic-model-Texas Fleet Operations/datasource.json",
+      "type": "semantic_model",
+      "artifactMatchesModel": true,
+      "tables": 7,
+      "columns": 42,
+      "measures": 17
+    }
+  ],
+  "stages": [
+    {
+      "path": "Files/Config/draft/stage_config.json",
+      "instructionsMatch": true
+    },
+    {
+      "path": "Files/Config/published/stage_config.json",
+      "instructionsMatch": true
+    }
+  ]
+}

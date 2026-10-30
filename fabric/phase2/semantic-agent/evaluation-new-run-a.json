@@ -1,0 +1,74 @@
+{
+  "evaluatedAt": "2026-10-30T07:37:42.021Z",
+  "note": "Programmatic key-fact check against fresh DAX; manual review of each answer is recorded separately.",
+  "rows": [
+    {
+      "id": "Q1",
+      "status": "FAIL",
+      "missing": [
+        "attention",
+        "total",
+        "share"
+      ],
+      "seconds": "31.4"
+    },
+    {
+      "id": "Q2",
+      "status": "FAIL",
+      "missing": [
+        "count",
+        "rate"
+      ],
+      "seconds": "39.3"
+    },
+    {
+      "id": "Q3",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "17.1",
+      "codes": 5
+    },
+    {
+      "id": "Q4",
+      "status": "FAIL",
+      "missing": [
+        "active",
+        "health",
+        "alertVehicles"
+      ],
+      "seconds": "63.3"
+    },
+    {
+      "id": "Q5",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "38.9",
+      "codes": 10
+    },
+    {
+      "id": "Q6",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "82.2"
+    },
+    {
+      "id": "Q7",
+      "status": "FAIL",
+      "missing": [
+        "health",
+        "alertVehicles",
+        "outOfService",
+        "delayed",
+        "stale",
+        "union"
+      ],
+      "seconds": "47.6"
+    },
+    {
+      "id": "Q8",
+      "status": "PASS",
+      "missing": [],
+      "seconds": "72.1"
+    }
+  ]
+}

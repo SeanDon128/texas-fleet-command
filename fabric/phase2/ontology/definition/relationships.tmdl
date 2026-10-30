@@ -1,0 +1,27 @@
+relationship operatesIn
+	fromColumn: Vehicles.region_id
+	toColumn: Regions.id
+
+relationship assignedToVehicle
+	fromColumn: Assignments.vehicle_id
+	toColumn: Vehicles.id
+
+relationship affectsVehicle
+	fromColumn: Alerts.vehicle_id
+	toColumn: Vehicles.id
+
+relationship observedOnVehicle
+	fromColumn: FleetEvents.vehicle_id
+	toColumn: Vehicles.id
+
+relationship concernsAlert
+	fromColumn: FleetEvents.alert_id
+	toColumn: Alerts.id
+
+relationship assignedForReview
+	fromColumn: Alerts.assignedTo_id
+	toColumn: TeamMembers.id
+
+relationship teamBasedIn
+	fromColumn: TeamMembers.region_id
+	toColumn: Regions.id

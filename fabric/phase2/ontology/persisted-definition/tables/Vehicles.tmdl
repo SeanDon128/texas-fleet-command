@@ -1,0 +1,70 @@
+table Vehicles
+	lineageTag: 00000000-0000-4000-8000-fb4352c6c04f
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f7d28d0a4c53
+		sourceColumn: id
+
+	column vehicleCode
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f8612e2a2680
+		sourceColumn: vehicleCode
+
+	column callSign
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4debb2924d0
+		sourceColumn: callSign
+
+	column region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4fa528ece55
+		sourceColumn: region_id
+
+	column status
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fdfa4eff7188
+		sourceColumn: status
+
+	column healthStatus
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f995b33289e3
+		sourceColumn: healthStatus
+
+	column delayStatus
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fbf710e8f7f6
+		sourceColumn: delayStatus
+
+	column delayMinutes
+		dataType: int64
+		lineageTag: 00000000-0000-4000-8000-f19e01b6f27b
+		sourceColumn: delayMinutes
+
+	column lastTelemetryAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-fcea9f752a51
+		sourceColumn: lastTelemetryAt
+
+	column energyType
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f48b993b59ac
+		sourceColumn: energyType
+
+	column energyPct
+		dataType: int64
+		lineageTag: 00000000-0000-4000-8000-f4434acd6e26
+		sourceColumn: energyPct
+
+	column isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-fc0754bd73e4
+		sourceColumn: isSynthetic
+
+	partition Vehicles = entity
+		mode: directLake
+		source
+			entityName: Vehicles
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

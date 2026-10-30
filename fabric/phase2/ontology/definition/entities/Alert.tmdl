@@ -1,0 +1,89 @@
+/// Synthetic alert. Active means current record status open or acknowledged, not a historical snapshot at the scenario clock. Review assignment does not assert notification.
+entity Alert
+	lineageTag: 00000000-0000-4000-8000-f1a3db3ccc76
+	backingTable: Alerts
+	keyProperty: id
+
+	property id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fcf729ab30a7
+
+		backingConfiguration
+			valueColumn: Alerts.id
+
+	property vehicle_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f188b01d5432
+
+		backingConfiguration
+			valueColumn: Alerts.vehicle_id
+
+	property region_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fed541ccb54b
+
+		backingConfiguration
+			valueColumn: Alerts.region_id
+
+	property assignedTo_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f1bef3bc3821
+
+		backingConfiguration
+			valueColumn: Alerts.assignedTo_id
+
+	property status
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fb5fb3d17e3e
+
+		backingConfiguration
+			valueColumn: Alerts.status
+
+	property severity
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f1fec9ee35e8
+
+		backingConfiguration
+			valueColumn: Alerts.severity
+
+	property type
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f29600a59c3b
+
+		backingConfiguration
+			valueColumn: Alerts.type
+
+	property message
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fe1061575f39
+
+		backingConfiguration
+			valueColumn: Alerts.message
+
+	property createdAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-fb05b4d8cafc
+
+		backingConfiguration
+			valueColumn: Alerts.createdAt
+
+	property resolvedAt
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f3f7bbe57a3b
+
+		backingConfiguration
+			valueColumn: Alerts.resolvedAt
+
+	property source
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f0286bfe5723
+
+		backingConfiguration
+			valueColumn: Alerts.source
+
+	property isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-fc3ed6d719dd
+
+		backingConfiguration
+			valueColumn: Alerts.isSynthetic

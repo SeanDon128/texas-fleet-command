@@ -1,0 +1,34 @@
+/// Synthetic operating region, not a physical vehicle location or unique route geography.
+entity Region
+	lineageTag: 00000000-0000-4000-8000-fa96bb4d7642
+	backingTable: Regions
+	keyProperty: id
+
+	property id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fb7ae811ef4f
+
+		backingConfiguration
+			valueColumn: Regions.id
+
+	property code
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f8d55db720bc
+
+		backingConfiguration
+			valueColumn: Regions.code
+
+	property name
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f10fafc4017f
+
+		backingConfiguration
+			valueColumn: Regions.name
+
+	property hubName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fab565676568
+
+		backingConfiguration
+			valueColumn: Regions.hubName
+

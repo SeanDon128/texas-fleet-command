@@ -1,0 +1,66 @@
+{
+  "inspectedAt": "2026-10-29T20:04:45.568Z",
+  "items": [
+    {
+      "api": "ontologies",
+      "value": {
+        "id": "00000000-0000-4000-8000-f4fa252bba1a",
+        "type": "Ontology",
+        "displayName": "Fleet_Operations",
+        "description": "Synthetic Texas fleet business context, direct SQLDatabase replica bindings, explicit scenario-clock semantics. No real operational claims. No graph materialization.",
+        "workspaceId": "00000000-0000-4000-8000-000000000002",
+        "logicalId": null,
+        "properties": {
+          "generation": 2
+        }
+      }
+    },
+    {
+      "api": "graphModels",
+      "value": {
+        "id": "00000000-0000-4000-8000-f65519034aa5",
+        "type": "GraphModel",
+        "displayName": "Fleet_Operations_graph_00000000000040008000f4fa252bba1a",
+        "description": "Ontology graph for Fleet_Operations",
+        "workspaceId": "00000000-0000-4000-8000-000000000002",
+        "logicalId": null
+      }
+    },
+    {
+      "api": "eventhouses",
+      "value": {
+        "id": "00000000-0000-4000-8000-f829ab153164",
+        "type": "Eventhouse",
+        "displayName": "Fleet_Operations_eh_00000000000040008000f4fa252bba1a",
+        "description": "",
+        "workspaceId": "00000000-0000-4000-8000-000000000002",
+        "logicalId": null,
+        "properties": {
+          "queryServiceUri": "https://<eventhouse-host>.kusto.fabric.microsoft.com",
+          "ingestionServiceUri": "https://ingest-<eventhouse-host>.kusto.fabric.microsoft.com",
+          "databasesItemIds": [
+            "00000000-0000-4000-8000-f59ed85928ec"
+          ],
+          "minimumConsumptionUnits": 0
+        }
+      }
+    },
+    {
+      "api": "kqlDatabases",
+      "value": {
+        "id": "00000000-0000-4000-8000-f59ed85928ec",
+        "type": "KQLDatabase",
+        "displayName": "Fleet_Operations_eh_00000000000040008000f4fa252bba1a",
+        "description": "",
+        "workspaceId": "00000000-0000-4000-8000-000000000002",
+        "logicalId": null,
+        "properties": {
+          "parentEventhouseItemId": "00000000-0000-4000-8000-f829ab153164",
+          "queryServiceUri": "https://<eventhouse-host>.kusto.fabric.microsoft.com",
+          "ingestionServiceUri": "https://ingest-<eventhouse-host>.kusto.fabric.microsoft.com",
+          "databaseType": "ReadWrite"
+        }
+      }
+    }
+  ]
+}

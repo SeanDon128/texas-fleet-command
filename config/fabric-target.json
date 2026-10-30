@@ -1,0 +1,19 @@
+{
+  "username": "<approved-account>",
+  "tenantId": "00000000-0000-4000-8000-000000000001",
+  "workspaceName": "Trucks Rayfin",
+  "workspaceId": "00000000-0000-4000-8000-000000000002",
+  "capacityName": "demodinoeast2",
+  "capacityId": "00000000-0000-4000-8000-000000000003",
+  "capacityRegion": "East US 2",
+  "lakehouseName": "tx_fleet_history",
+  "lakehouseId": "00000000-0000-4000-8000-000000000004",
+  "appName": "tx-fleet-command",
+  "appId": "00000000-0000-4000-8000-000000000005",
+  "sqlDatabaseId": "00000000-0000-4000-8000-000000000006",
+  "sqlAnalyticsEndpointId": "00000000-0000-4000-8000-000000000007",
+  "historySqlEndpointId": "00000000-0000-4000-8000-000000000008",
+  "dataAgentName": "tx-fleet-operations-agent",
+  "dataAgentId": "00000000-0000-4000-8000-000000000009",
+  "userDataFunctionId": "00000000-0000-4000-8000-000000000010"
+}

@@ -1,0 +1,38 @@
+{
+  "inspectedAt": "2026-10-30T08:13:23.489Z",
+  "sources": [
+    {
+      "path": "Files/Config/draft/semantic-model-Texas Fleet Operations/datasource.json",
+      "type": "semantic_model",
+      "displayName": "Texas Fleet Operations"
+    },
+    {
+      "path": "Files/Config/published/semantic-model-Texas Fleet Operations/datasource.json",
+      "type": "semantic_model",
+      "displayName": "Texas Fleet Operations"
+    }
+  ],
+  "paths": [
+    "Files/Config/data_agent.json",
+    "Files/Config/draft/stage_config.json",
+    "Files/Config/draft/semantic-model-Texas Fleet Operations/datasource.json",
+    "Files/Config/publish_info.json",
+    "Files/Config/published/stage_config.json",
+    "Files/Config/published/semantic-model-Texas Fleet Operations/datasource.json",
+    ".platform"
+  ],
+  "stages": [
+    {
+      "path": "Files/Config/draft/stage_config.json",
+      "previewEnabled": false
+    },
+    {
+      "path": "Files/Config/published/stage_config.json",
+      "previewEnabled": false
+    }
+  ],
+  "publishedPartsUnchanged": true,
+  "changedParts": [
+    "Files/Config/draft/stage_config.json"
+  ]
+}

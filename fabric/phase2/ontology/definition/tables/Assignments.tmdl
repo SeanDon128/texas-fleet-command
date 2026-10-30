@@ -1,0 +1,64 @@
+table Assignments
+	lineageTag: 00000000-0000-4000-8000-fe83662d2fbf
+
+	column id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4c21dc13a87
+		sourceColumn: id
+
+	column vehicle_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f5f49a642d47
+		sourceColumn: vehicle_id
+
+	column originRegion_id
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f4d758441ce4
+		sourceColumn: originRegion_id
+
+	column routeCode
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-fcd7cbe602f2
+		sourceColumn: routeCode
+
+	column destinationName
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f380736974a9
+		sourceColumn: destinationName
+
+	column scheduledArrival
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-f194593f3b96
+		sourceColumn: scheduledArrival
+
+	column estimatedArrival
+		dataType: dateTime
+		lineageTag: 00000000-0000-4000-8000-fef8c8dbe1f6
+		sourceColumn: estimatedArrival
+
+	column isCurrent
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-faef50738c50
+		sourceColumn: isCurrent
+
+	column status
+		dataType: string
+		lineageTag: 00000000-0000-4000-8000-f2e760e3e63f
+		sourceColumn: status
+
+	column delayMinutes
+		dataType: int64
+		lineageTag: 00000000-0000-4000-8000-f7fb23a38ab4
+		sourceColumn: delayMinutes
+
+	column isSynthetic
+		dataType: boolean
+		lineageTag: 00000000-0000-4000-8000-f4da1e0beb08
+		sourceColumn: isSynthetic
+
+	partition Assignments = entity
+		mode: directLake
+		source
+			entityName: Assignments
+			schemaName: dbo
+			expressionSource: DatabaseQuery

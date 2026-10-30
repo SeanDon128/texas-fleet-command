@@ -1,0 +1,4 @@
+/// Synthetic fleet context only. No graph materialization or refresh schedule.
+database
+	compatibilityLevel: 1000000
+

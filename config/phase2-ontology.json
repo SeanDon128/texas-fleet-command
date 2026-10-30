@@ -1,0 +1,18 @@
+{
+  "displayName": "Fleet_Operations",
+  "generation": "2",
+  "ontologyId": "00000000-0000-4000-8000-f4fa252bba1a",
+  "deploymentStatus": "definition_verified_query_verification_pending",
+  "tenantId": "00000000-0000-4000-8000-000000000001",
+  "username": "<approved-account>",
+  "workspaceId": "00000000-0000-4000-8000-000000000002",
+  "capacityId": "00000000-0000-4000-8000-000000000003",
+  "sqlDatabaseId": "00000000-0000-4000-8000-000000000006",
+  "sqlAnalyticsEndpointId": "00000000-0000-4000-8000-000000000007",
+  "sourceServer": "<sql-analytics-endpoint>",
+  "sourceDatabase": "00000000-0000-4000-8000-000000000007",
+  "logicalId": "00000000-0000-4000-8000-f44b08529ca2",
+  "description": "Zava Security (fictional) Texas fleet business context over existing SQLDatabase replica bindings and scenario time. Synthetic data only. Associated graph resources exist; no graph refresh was explicitly requested.",
+  "graphMaterialization": false,
+  "refreshSchedule": false
+}
